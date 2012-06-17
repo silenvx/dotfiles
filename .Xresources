@@ -1,0 +1,26 @@
+! utf8 encoding
+XTerm*utf8:                 1
+! 多分utf8関連
+XTerm*locale:               true
+! utf8のタイトル
+XTerm*utf8Title:            true
+! altをmetaキーとして送信できるようにする
+XTerm*metaSendsEscape:      true
+! 多分16bitのシーケンス制御に対応する
+XTerm*wideChars:            true
+! 文字の幅を正しくする
+XTerm*forcePackedFont:      false
+! フォント
+XTerm*faceName:             Ricty
+! マルチバイト文字のフォント
+XTerm*faceNameDoublesize:   Ricty
+! xim
+XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
+! フォントのサイズ
+XTerm*faceSize:             9
+! $TERMのシェル変数
+XTerm*xtermName:            xterm-256color
+! バックグラウンドの色
+XTerm*background:           #000000
+! フォアグラウンドの色
+XTerm*foreground:           #FFFFFF

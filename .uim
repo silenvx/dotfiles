@@ -1,0 +1,27 @@
+(define default-im-name 'mozc)
+(define-custom 'generic-on-key '("<Control> " "zenkaku-hankaku")
+               '(global-keys1)
+               '(key)
+               (N_ "[Global] on")
+               (N_ "long description will be here"))
+
+(define-custom 'generic-off-key '("<Control> " "zenkaku-hankaku")
+               '(global-keys1)
+               '(key)
+               (N_ "[Global] off")
+               (N_ "long description will be here"))
+
+(define-custom 'mozc-on-key '("<Control> " "zenkaku-hankaku")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] on")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-off-key '("<Control> " "zenkaku-hankaku")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] off")
+               (_ "long description will be here"))
+
+(define uim-xim-use-xft-font? #t)
+(define uim-xim-xft-font-name "Ricty")
