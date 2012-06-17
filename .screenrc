@@ -1,0 +1,23 @@
+# Escape key is C-t, literal is t.
+escape ^Tt
+
+# sets the encoding of the default window.
+defencoding utf8
+
+# don't show startup message
+startup_message off
+
+# echo command name whenever a window is created or resurrected.
+verbose on
+
+# virtual bell off
+vbell off
+
+# when hangup, auto detach
+autodetach on
+
+# status line in under
+#hardstatus alwayslastline "%{= gk}[%m/%d %02c:%s] %{gW} %-w%{= wk}%n %t%{-}%+w %=%{gk}$USER@$HOSTNAME[$LANG] (%l) "
+
+# term
+term screen-256color
