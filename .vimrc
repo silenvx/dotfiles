@@ -46,10 +46,6 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 syntax on
 " クリップボードの共有
 set clipboard=unnamed
-" fortran設定
-let fortran_free_source=1
-let fortran_fold=1
-au! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
 " コマンドモードでlinuxの端末の補完みたいにする
 set wildmode=longest,list
 " 挿入か置換を表示
@@ -104,3 +100,13 @@ augroup END
 let g:html_indent_script1="inc"
 let g:html_indent_style1="inc" 
 let g:html_indent_inctags="html,body,head"
+" .f90
+let fortran_free_source=1
+let fortran_fold=1
+autocmd! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+" .uim
+autocmd BufRead,BufNewFile .uim set filetype=scheme
+" .vimperatorrc
+autocmd BufRead,BufnewFile .vimperatorrc set filetype=vimperator
+" *.ebuild
+autocmd BufRead,BufnewFile *.ebuild set textwidth=0

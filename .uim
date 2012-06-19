@@ -1,4 +1,10 @@
+; default input method
 (define default-im-name 'mozc)
+; use xft
+(define uim-xim-use-xft-font? #t)
+; font
+(define uim-xim-xft-font-name "Ricty")
+
 (define-custom 'generic-on-key '("<Control> " "zenkaku-hankaku")
                '(global-keys1)
                '(key)
@@ -11,17 +17,116 @@
                (N_ "[Global] off")
                (N_ "long description will be here"))
 
+; on key
 (define-custom 'mozc-on-key '("<Control> " "zenkaku-hankaku")
                '(mozc-keys)
                '(key)
                (_ "[Mozc] on")
                (_ "long description will be here"))
 
+; off key
 (define-custom 'mozc-off-key '("<Control> " "zenkaku-hankaku")
                '(mozc-keys)
                '(key)
                (_ "[Mozc] off")
                (_ "long description will be here"))
 
-(define uim-xim-use-xft-font? #t)
-(define uim-xim-xft-font-name "Ricty")
+(define-custom 'mozc-begin-conv-key '(" ")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] begin conversion")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-commit-key '("<IgnoreCase><Control>j" mozc-return-key)
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] commit")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-cancel-key '("escape" "<Control>[" "<IgnoreCase><Control>g")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] cancel")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-next-candidate-key '(" " "down" "<IgnoreCase><Control>n")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] next candidate")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-prev-candidate-key '("up" "<IgnoreCase><Control>p")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] previous candidate")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-next-page-key '("next")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] next page of candidate window")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-prev-page-key '("prior")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] previous page of candidate window")
+               (_ "long description will be here"))
+
+;;
+;; advanced
+;;
+
+(define-custom 'mozc-beginning-of-preedit-key '("home" "<IgnoreCase><Control>a")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] beginning of preedit")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-end-of-preedit-key '("end" "<IgnoreCase><Control>e")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] end of preedit")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-kill-key '("<IgnoreCase><Control>k")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] erase after cursor")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-kill-backward-key '("<IgnoreCase><Control>u")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] erase before cursor")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-backspace-key '("backspace" "<IgnoreCase><Control>h")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] backspace")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-delete-key '("delete" "<IgnoreCase><Control>d")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] delete")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-go-left-key '("left" "<IgnoreCase><Control>b")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] go left")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-go-right-key '("right" "<IgnoreCase><Control>f")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] go right")
+               (_ "long description will be here"))
+
+(define-custom 'mozc-return-key '("return" "<IgnoreCase><Control>m")
+               '(mozc-keys)
+               '(key)
+               (_ "[Mozc] return")
+               (_ "long description will be here"))
