@@ -29,5 +29,9 @@
 
 (require 'site-gentoo)
 
-(cond (window-system
-        (setq x-select-enable-clipboard t)))
+; x window systemとクリップボードを共有
+;(cond (window-system
+;        (setq x-select-enable-clipboard t)))
+
+; メニューバーは非表示
+(menu-bar-mode nil)

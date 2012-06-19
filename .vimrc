@@ -47,7 +47,7 @@ syntax on
 " クリップボードの共有
 set clipboard=unnamed
 " コマンドモードでlinuxの端末の補完みたいにする
-set wildmode=longest,list
+set wildmode=list,full
 " 挿入か置換を表示
 set showmode
 " 行間
@@ -110,3 +110,5 @@ autocmd BufRead,BufNewFile .uim set filetype=scheme
 autocmd BufRead,BufnewFile .vimperatorrc set filetype=vimperator
 " *.ebuild
 autocmd BufRead,BufnewFile *.ebuild set textwidth=0
+" enable neocomplcache
+let g:neocomplcache_enable_at_startup=1

@@ -20,7 +20,8 @@ HOME_DOTFILES=${HOME_DOTFILES:=".emacs
     .vimrc
     .xinitrc
     .Xresources
-    .zshrc"}
+    .zshrc
+    .wgetrc"}
 
 # 自動的に行うコマンドで無視したいファイル名やディレクトリ名を
 # grepの正規表現を使って書く
