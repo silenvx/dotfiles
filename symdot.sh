@@ -16,6 +16,7 @@ HOME_DOTFILES=${HOME_DOTFILES:=".emacs
     .tmux.conf
     .uim
     .vim
+    .vimperator
     .vimperatorrc
     .vimrc
     .xinitrc

@@ -1,7 +1,20 @@
 " UTF-8 LF
 
+" vundleの設定
 " viと互換モードにしない
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'wombat256.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'indenthtml.vim'
+Bundle 'https://github.com/vim-jp/vimdoc-ja.git'
+
+
+" pluginとindentをon
+filetype plugin indent on
 " 256色にする
 set t_Co=256
 " colorsheme
@@ -93,8 +106,6 @@ set hidden
 set synmaxcol=0
 " 勝手に改行させない
 set textwidth=0
-" pluginとindentをon
-filetype plugin indent on
 " 保存時にディレクトリがなくても確認して作成する
 augroup vimrc-auto-mkdir
     autocmd!
@@ -120,5 +131,7 @@ autocmd BufRead,BufNewFile .uim set filetype=scheme
 autocmd BufRead,BufnewFile .vimperatorrc set filetype=vimperator
 " *.ebuild
 autocmd BufRead,BufnewFile *.ebuild set textwidth=0
+" *.sh
+autocmd BufRead,BufnewFile *.sh set filetype=sh
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup=1
