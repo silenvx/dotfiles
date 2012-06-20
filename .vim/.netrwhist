@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/noter/dev/git/github/portage/app-i18n'
-let g:netrw_dirhist_2='/usr/portage/sys-devel/binutils'
-let g:netrw_dirhist_3='/home/noter/dev/git/github/dotfiles/.vimperator'
