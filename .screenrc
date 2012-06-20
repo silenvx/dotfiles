@@ -1,3 +1,5 @@
+# UTF-8 LF
+
 # Escape key is C-t, literal is t.
 escape ^Tt
 

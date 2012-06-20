@@ -1,14 +1,16 @@
+" UTF-8 LF
+
 " viと互換モードにしない
 set nocompatible
-" 255色にする
-set t_Co=255
+" 256色にする
+set t_Co=256
 " colorsheme
 colorscheme wombat256mod
 " titleを表示
 set title
-" 行番号
+" 行番号を表示
 set number
-" ルーラー
+" ルーラーを表示
 set ruler
 " バックアップとスワップなし
 set nobackup
@@ -22,12 +24,20 @@ set shiftwidth=4
 " 自動的にインデントする
 set autoindent
 set smartindent
-" 文字コードと改行コード
-scriptencoding utf-8
-set fileencodings=utf-8,cp932,euc-jp
-set fileformats=unix,dos
+" vimの内部の文字コード
 set encoding=utf-8
+" スクリプトで使われている文字コード
+scriptencoding utf-8
+" 保存する時の文字コード
+set fileencoding=utf-8
+" 開く時の文字コード
+set fileencodings=utf-8,cp932,euc-jp
+" 端末の文字コード
+set termencoding=utf-8
+" 保存する時の改行コード
 set fileformat=unix
+" 開く時の改行コード
+set fileformats=unix,dos
 " 折り返ししない
 set nowrap
 " 大文字小文字を区別せず検索、大文字がある場合区別する
@@ -100,7 +110,7 @@ augroup END
 let g:html_indent_script1="inc"
 let g:html_indent_style1="inc" 
 let g:html_indent_inctags="html,body,head"
-" .f90
+" *.f90
 let fortran_free_source=1
 let fortran_fold=1
 autocmd! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
