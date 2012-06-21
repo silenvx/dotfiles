@@ -47,8 +47,8 @@ func_help(){
     echo " candidate        HOME_DOTFILESに追加できそうな候補を表示"
     echo " install auto     candidateの出力だけを見ながらシンボリックリンクを削除"
     echo " clean auto       candidateの出力だけを見ながらシンボリックリンクを削除"
-    echo " install misc     misc以下のファイルを見てルートディレクトリ以下にシンボリックリンクを設置"
-    echo " clean misc       misc以下のファイルを見てルートディレクトリ以下のシンボリックリンクを削除"
+    echo " install root misc/root以下のファイルを見てルートディレクトリ以下にシンボリックリンクを設置"
+    echo " clean root misc/root以下のファイルを見てルートディレクトリ以下のシンボリックリンクを削除"
     echo "--------------"
     echo "HOME_DOTFILESの影響を受けるオプション"
     echo " install clean pretend"
@@ -119,19 +119,19 @@ func_clean_auto(){
     func_clean
 }
 
-func_misc_search(){
-    if [ -d "${PWD}/misc" ];then
-        MISC_FILES=$(echo "$(cd ${PWD}/misc;find ./ -type f -print)"|\
+func_search_misc_root(){
+    if [ -d "${PWD}/misc/root" ];then
+        MISC_ROOT_FILES=$(echo "$(cd ${PWD}/misc/root;find ./ -type f -print)"|\
                 sed -e "s/^\.//g")
     else
-        echo "${PWD}/miscディレクトリが見つかりません"
+        echo "${PWD}/misc/rootディレクトリが見つかりません"
         exit 1
     fi
 }
 
-func_install_misc(){
-    func_misc_search
-    echo "${MISC_FILES}"|\
+func_install_misc_root(){
+    func_search_misc_root
+    echo "${MISC_ROOT_FILES}"|\
         while read TMP
     do
         if [ "${TMP}" != "" ];then
@@ -139,7 +139,7 @@ func_install_misc(){
                 echo "既に${TMP}が存在します"
             else
                 echo "installing ${TMP}"
-                ln -s "${PWD}/misc${TMP}" "${TMP}"
+                ln -s "${PWD}/misc/root${TMP}" "${TMP}"
             fi
         else
             echo "名前が指定されていない行をスキップしました"
@@ -147,9 +147,9 @@ func_install_misc(){
     done
 }
 
-func_clean_misc(){
-    func_misc_search
-    echo "${MISC_FILES}"|\
+func_clean_misc_root(){
+    func_search_misc_root
+    echo "${MISC_ROOT_FILES}"|\
         while read TMP
     do
         if [ "${TMP}" != "" ];then
@@ -175,16 +175,16 @@ else
     elif [ "${1}" == "install" ];then
         if [ "${2}" == "auto" ];then
             func_install_auto
-        elif [ "${2}" == "misc" ];then
-            func_install_misc
+        elif [ "${2}" == "root" ];then
+            func_install_misc_root
         else
             func_install
         fi
     elif [ "${1}" == "clean" ];then
         if [ "${2}" == "auto" ];then
             func_clean_auto
-        elif [ "${2}" == "misc" ];then
-            func_clean_misc
+        elif [ "${2}" == "root" ];then
+            func_clean_misc_root
         else
             func_clean
         fi
