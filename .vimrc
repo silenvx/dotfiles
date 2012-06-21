@@ -7,10 +7,12 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'wombat256.vim'
+Bundle 'vim-scripts/wombat256.vim'
 Bundle 'Shougo/neocomplcache'
-Bundle 'indenthtml.vim'
-Bundle 'https://github.com/vim-jp/vimdoc-ja.git'
+Bundle 'vim-scripts/indenthtml.vim'
+Bundle 'vim-jp/vimdoc-ja'
+Bundle 'vim-scripts/sh.vim'
+Bundle 'manic/vim-php-indent'
 
 
 " pluginとindentをon
@@ -124,14 +126,15 @@ let g:html_indent_inctags="html,body,head"
 " *.f90
 let fortran_free_source=1
 let fortran_fold=1
-autocmd! BufRead,BufNewFile *.f90 let b:fortran_do_enddo=1
+autocmd BufNewFile,BufRead *.f90 let b:fortran_do_enddo=1
 " .uim
-autocmd BufRead,BufNewFile .uim set filetype=scheme
+autocmd BufNewFile,BufRead .uim set filetype=scheme
 " .vimperatorrc
-autocmd BufRead,BufnewFile .vimperatorrc set filetype=vimperator
+autocmd BufNewFile,BufRead .vimperatorrc set filetype=vimperator
 " *.ebuild
-autocmd BufRead,BufnewFile *.ebuild set textwidth=0
+autocmd BufNewFile,BufRead *.ebuild set textwidth=0
 " *.sh
-autocmd BufRead,BufnewFile *.sh set filetype=sh
+autocmd BufNewFile,BufRead *.sh set filetype=sh
+let g:sh_indent_case_labels=1
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup=1
