@@ -2,7 +2,7 @@
 # 2012/06/17 - 2012/06/19 UTF-8 LF
 
 # 現在のバージョン
-VERSION="0.0.3"
+VERSION="0.0.3-r1"
 
 # このファイルの場所
 PWD="$(cd $(dirname ${0});pwd)"
@@ -27,7 +27,8 @@ HOME_DOTFILES=${HOME_DOTFILES:=".emacs
 # 自動的に行うコマンドで無視したいファイル名やディレクトリ名を
 # grepの正規表現を使って書く
 # miscはホームディレクトリ以外にシンボリックリンクを張りたいファイルを置く場所
-# miscの階層はmiscをルートディレクトリのように見立てて置いていく
+# install rootをするとmisc/rootはルートディレクトリのように見立てて
+# シンボリックリンクが貼られていく
 IGNORE_FILES=${IGNORE_FILES:="^\.$
     ^\.\.$
     ^\.git$
