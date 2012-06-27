@@ -1,23 +1,38 @@
 " UTF-8 LF
 
 " vundleの設定
-" viと互換モードにしない
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
+" vundle for vundle
 Bundle 'gmarik/vundle'
+" colorscheme for vim
 Bundle 'vim-scripts/wombat256.vim'
+" plugin for completion
 Bundle 'Shougo/neocomplcache'
+" indent for html
 Bundle 'vim-scripts/indenthtml.vim'
+" document for japanese
 Bundle 'vim-jp/vimdoc-ja'
+" indent for sh
 Bundle 'vim-scripts/sh.vim'
+" indent for php
 Bundle 'manic/vim-php-indent'
+" filer in vim
+Bundle 'Shougo/unite.vim'
+" reference viwer in vim
+Bundle 'thinca/vim-ref'
+" align
+Bundle 'tsaleh/vim-align'
+" quickrun
+Bundle 'thinca/vim-quickrun'
 
 
 " pluginとindentをon
 filetype plugin indent on
-" 256色にする
+autocmd BufWinEnter * filetype detect
+" 強制的に256色にする
 set t_Co=256
 " colorsheme
 colorscheme wombat256mod
@@ -108,6 +123,10 @@ set hidden
 set synmaxcol=0
 " 勝手に改行させない
 set textwidth=0
+" 印字不可文字を16進数で表示
+set display=uhex
+" カーソル行をハイライト(重いからoff)
+"set cursorline
 " 保存時にディレクトリがなくても確認して作成する
 augroup vimrc-auto-mkdir
     autocmd!
@@ -133,8 +152,6 @@ autocmd BufNewFile,BufRead .uim set filetype=scheme
 autocmd BufNewFile,BufRead .vimperatorrc set filetype=vimperator
 " *.ebuild
 autocmd BufNewFile,BufRead *.ebuild set textwidth=0
-" *.sh
-autocmd BufNewFile,BufRead *.sh set filetype=sh
 let g:sh_indent_case_labels=1
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup=1

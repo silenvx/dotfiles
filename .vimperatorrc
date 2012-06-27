@@ -24,9 +24,9 @@ let use_hintchars_ex=2
 "INSERT MODEにて<C-t>でTEXTAREAを有効にするを無効にする
 set insertmode
 "IME関連 (imekeys.js)
-let g:ime_activate_xkey="\[Control]\[Shift]$"
-let g:ime_deactivate_xkey="\[Control]\[Shift] "
-let g:imeoff='cmd'
+"let g:ime_activate_xkey="\[Control]\[Shift]$"
+"let g:ime_deactivate_xkey="\[Control]\[Shift] "
+"let g:imeoff='cmd'
 
 "左下のマウスオーバーを非表示
 style chrome://* #statusbar-display[type="overLink"] {display: none !important;}
