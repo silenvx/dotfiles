@@ -1,3 +1,6 @@
+; メニューバーは非表示
+(menu-bar-mode nil)
+
 ; navi2ch
 (require 'navi2ch)
 ; proxy on navi2ch
@@ -29,9 +32,11 @@
 
 (require 'site-gentoo)
 
-; x window systemとクリップボードを共有
-;(cond (window-system
-;        (setq x-select-enable-clipboard t)))
-
-; メニューバーは非表示
-(menu-bar-mode nil)
+; emacs-skype
+(setq load-path
+      (append
+        (list
+          (expand-file-name "~/.emacs.d/skype/")
+          )
+        load-path))
+(require 'skype)

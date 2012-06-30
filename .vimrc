@@ -27,7 +27,8 @@ Bundle 'thinca/vim-ref'
 Bundle 'tsaleh/vim-align'
 " quickrun
 Bundle 'thinca/vim-quickrun'
-
+" syntax hatena
+Bundle 'motemen/hatena-vim'
 
 " pluginとindentをon
 filetype plugin indent on
@@ -152,6 +153,9 @@ autocmd BufNewFile,BufRead .uim set filetype=scheme
 autocmd BufNewFile,BufRead .vimperatorrc set filetype=vimperator
 " *.ebuild
 autocmd BufNewFile,BufRead *.ebuild set textwidth=0
+" hatenaのユーザー名
+let g:hatena_user="silenvx"
+" indent sh.vim
 let g:sh_indent_case_labels=1
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup=1

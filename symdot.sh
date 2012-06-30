@@ -2,7 +2,7 @@
 # 2012/06/17 - 2012/06/19 UTF-8 LF
 
 # 現在のバージョン
-VERSION="0.0.3-r1"
+VERSION="0.0.3-r2"
 
 # このファイルの場所
 PWD="$(cd $(dirname ${0});pwd)"
@@ -39,6 +39,7 @@ IGNORE_FILES=${IGNORE_FILES:="^\.$
 
 func_help(){
     echo "${0##*/} version:${VERSION}"
+    echo "misc/root以下はchown -R root:rootすべきです"
     echo "--------------"
     echo "オプション"
     echo " help             このヘルプを表示"
