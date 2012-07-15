@@ -31,12 +31,3 @@
 (setq default-input-method "japanese-mozc")
 
 (require 'site-gentoo)
-
-; emacs-skype
-(setq load-path
-      (append
-        (list
-          (expand-file-name "~/.emacs.d/skype/")
-          )
-        load-path))
-(require 'skype)

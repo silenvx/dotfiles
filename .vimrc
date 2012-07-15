@@ -19,16 +19,20 @@ Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-scripts/sh.vim'
 " indent for php
 Bundle 'manic/vim-php-indent'
-" filer in vim
+" vim用のファイラーっぽいもの
 Bundle 'Shougo/unite.vim'
-" reference viwer in vim
+" リファランスがvim上で見れる
 Bundle 'thinca/vim-ref'
 " align
 Bundle 'tsaleh/vim-align'
 " quickrun
 Bundle 'thinca/vim-quickrun'
-" syntax hatena
+" vimからはてなダイアリーを使う
 Bundle 'motemen/hatena-vim'
+" vimからgistを使う
+Bundle 'mattn/gist-vim'
+" mattn/webapi-vimで必要
+Bundle 'mattn/webapi-vim'
 
 " pluginとindentをon
 filetype plugin indent on
@@ -128,6 +132,8 @@ set textwidth=0
 set display=uhex
 " カーソル行をハイライト(重いからoff)
 "set cursorline
+"記号などを全角で表示する
+set ambiwidth=double
 " 保存時にディレクトリがなくても確認して作成する
 augroup vimrc-auto-mkdir
     autocmd!
@@ -153,9 +159,15 @@ autocmd BufNewFile,BufRead .uim set filetype=scheme
 autocmd BufNewFile,BufRead .vimperatorrc set filetype=vimperator
 " *.ebuild
 autocmd BufNewFile,BufRead *.ebuild set textwidth=0
-" hatenaのユーザー名
+" motemen/hatena-vim hatenaのユーザー名
 let g:hatena_user="silenvx"
+" motemen/hatena-vim 保存をしても勝手に送信しないようする
+let g:hatena_upload_on_write=0
 " indent sh.vim
 let g:sh_indent_case_labels=1
 " enable neocomplcache
 let g:neocomplcache_enable_at_startup=1
+" mattn/gist-vim gistに投げる時のファイルタイプを自動で判定
+let g:gist_detect_filetype=1
+" mattn/gist-vim githubのユーザー名
+let g:github_user='silenvx'

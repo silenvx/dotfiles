@@ -8,6 +8,8 @@ XTerm*utf8Title:            true
 XTerm*metaSendsEscape:      true
 ! 多分16bitのシーケンス制御に対応する
 XTerm*wideChars:            true
+! 記号などを全角で表示する
+!XTerm*cjkWidth:             true
 ! 文字の幅を正しくする
 XTerm*forcePackedFont:      false
 ! フォント

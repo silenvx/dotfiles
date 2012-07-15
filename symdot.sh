@@ -21,6 +21,7 @@ HOME_DOTFILES=${HOME_DOTFILES:=".emacs
     .vimrc
     .xinitrc
     .Xresources
+    .zshenv
     .zshrc
     .wgetrc"}
 
@@ -35,6 +36,7 @@ IGNORE_FILES=${IGNORE_FILES:="^\.$
     ^README\.md$
     ^symdot\.sh$
     ^\.gitignore$
+    ^\.gitmodules$
     ^misc$"}
 
 func_help(){
