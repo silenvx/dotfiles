@@ -2,7 +2,7 @@
 # 2012/06/17 - 2012/06/19 UTF-8 LF
 
 # 現在のバージョン
-VERSION="0.0.3-r2"
+VERSION="0.0.3-r3"
 
 # このファイルの場所
 PWD="$(cd $(dirname ${0});pwd)"
@@ -83,8 +83,8 @@ func_clean(){
         while read TMP
     do
         if [ "${TMP}" != "" ];then
-            ls -F1ad "${HOME}/${TMP}" 2>/dev/null|grep "@$" > /dev/null 2>&1
-            if [ "${?}" == "0" -a "$(ls -F1ad ${HOME}/${TMP} 2>/dev/null)" != "$(ls -1ad ${HOME}/${TMP} 2>/dev/null)" ];then
+            ls -l1ad "${HOME}/${TMP}" 2>/dev/null|grep "^l" > /dev/null 2>&1
+            if [ "${?}" == "0" ];then
                 echo "clealing ~/${TMP}"
                 rm "${HOME}/${TMP}"
             else
@@ -157,8 +157,8 @@ func_clean_misc_root(){
         while read TMP
     do
         if [ "${TMP}" != "" ];then
-            ls -F1ad "${TMP}" 2>/dev/null|grep "@$" > /dev/null 2>&1
-            if [ "${?}" == "0" -a "$(ls -F1ad ${TMP} 2>/dev/null)" != "$(ls -1ad ${TMP} 2>/dev/null)" ];then
+            ls -l1ad "${TMP}" 2>/dev/null|grep "^l" > /dev/null 2>&1
+            if [ "${?}" == "0" ];then
                 echo "cleaning ${TMP}"
                 rm "${TMP}"
             else
