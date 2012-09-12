@@ -1,10 +1,10 @@
 #!/bin/sh
-VERSION="0.0.1"
+VERSION="0.0.2"
 PWD="$(cd $(dirname ${0});pwd)"
 FLAG_i="false"
 FLAG_r="false"
 FLAG_f="false"
-SYM_FUNCARG="0"
+SYM_FUNCARG=""
 # このファイルを見ながらファイルを設置する
 SYM_FILELIST="./.setsymlist"
 # 関数をまとめたファイル
@@ -77,7 +77,7 @@ for i in `cat "${SYM_FILELIST}"`;do
                 SYM_FUNCARG="${n##* }"
             fi
         done
-        if [ "${SYM_FUNCARG}" == "0" ];then
+        if [ "${SYM_FUNCARG}" == "" ];then
             echo "${SYM_FILELIST}の`grep -n \"^${i}$\" \"${SYM_FILELIST}\"`に誤りがありました" >&2
             echo "${i%% *}の処理は設定されていません" >&2
             exit 1
