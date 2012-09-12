@@ -1,0 +1,14 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>Yahoo! JAPAN</os:ShortName>
+<os:Description>Yahoo! JAPAN</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVQ4jWNgGAUM/xkY/uPCJJmDphGG8VqAYQkuCTSDcarDagi6ZlxieMMFm2a8BuCzhSjNRCgkbDO20CY2ev/jwIRtH5oAAKazfoKPSPbRAAAAAElFTkSuQmCC</os:Image>
+<SearchForm>about:blank</SearchForm>
+<Url type="application/x-suggestions+json" method="GET" template="http://google.com/complete/search?output=firefox&amp;hl=ja&amp;qu={searchTerms}"/>
+<os:Url type="text/html" method="GET" template="http://search.yahoo.co.jp/search">
+  <os:Param name="fl" value="0"/>
+  <os:Param name="n" value="100"/>
+  <os:Param name="ei" value="UTF-8"/>
+  <os:Param name="p" value="{searchTerms}"/>
+</os:Url>
+</SearchPlugin>

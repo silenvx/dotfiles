@@ -1,35 +1,38 @@
-"エディタをgvim
-set editor="xterm -e vim"
-"colorscheme
+" エディタをgvim
+set editor=" xterm -e vim" 
+" colorscheme
 colorscheme vimPgray
-"Invalid in bell
+" Invalid in bell
 set visualbell
 highlight Bell display:none
-"タブに番号を表示
+" タブに番号を表示
 set tabnumbers
-"補完
+" 補完
 set complete=s
-"title of the browser not changed.
-set titlestring="Mozilla Firefox"
-"オープンで,の機能をなくす
+" title of the browser not changed.
+set titlestring=" Mozilla Firefox" 
+" オープンで,の機能をなくす
 set urlseparator=
-"コピーした時、ascii文字以外のurlの文字列をエンコードさせる(copy.js)
+" コピーした時、ascii文字以外のurlの文字列をエンコードさせる(copy.js)
 noremap y :copy %URL%<CR>
-"backspace無効
+" backspace無効
 map <BS> <Nop>
-"hintを英字にする
+" hintを英字にする
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
-"ヒントの桁数を揃える(hints-ext.js)
+" ヒントの桁数を揃える(hints-ext.js)
 let use_hintchars_ex=2
-"INSERT MODEにて<C-t>でTEXTAREAを有効にするを無効にする
+" INSERT MODEにて<C-t>でTEXTAREAを有効にするを無効にする
 set insertmode
-"IME関連 (imekeys.js)
-"let g:ime_activate_xkey="\[Control]\[Shift]$"
-"let g:ime_deactivate_xkey="\[Control]\[Shift] "
-"let g:imeoff='cmd'
+" imeを無効化
+noremap <silent> f :!xvkbd -text "\\[Control]\\[Shift]\\[space]"<CR><Esc>f
+noremap <silent> F :!xvkbd -text "\\[Control]\\[Shift]\\[space]"<CR><Esc>F
+"noremap <silent> : :!xvkbd -text "\\[Control]\\[Shift]\\[space]"<CR><Esc>:
+"noremap <silent> o :!xvkbd -text "\\[Control]\\[Shift]\\[space]"<CR><Esc>o
+"noremap <silent> t :!xvkbd -text "\\[Control]\\[Shift]\\[space]"<CR><Esc>t
 
-"左下のマウスオーバーを非表示
-style chrome://* #statusbar-display[type="overLink"] {display: none !important;}
+
+" 左下のマウスオーバーを非表示
+style chrome://* #statusbar-display[type=" overLink" ] {display: none !important;}
 
 
 javascript <<JS

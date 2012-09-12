@@ -27,7 +27,9 @@
 (setq browse-url-browser-function 'w3m-browse-url url)
 
 ; input method
+(set-language-environment "Japanese")
 (require 'mozc)
 (setq default-input-method "japanese-mozc")
 
-(require 'site-gentoo)
+
+;(require 'site-gentoo)

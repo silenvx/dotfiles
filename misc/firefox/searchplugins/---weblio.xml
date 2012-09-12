@@ -1,0 +1,11 @@
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<os:ShortName>英和辞典・和英辞典 - Weblio辞書</os:ShortName>
+<os:Description>英和辞典・和英辞典 - Weblio辞書</os:Description>
+<os:InputEncoding>UTF-8</os:InputEncoding>
+<os:Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABnklEQVQ4jaXQvUrzUACHca8iOHgHjoqbeAdx8AKcKu2ggtfhEEGcFNGLECwIYian0mPVWLW0PRVKTRPTpPl46+F5h0g+Bpc6/Ak8OfwOnAXTNPnLFkzTRM1i1Cz55fv7vxz4F861HEiCuZYDsUfYaeCLW1TsZfNbd/itu3ITt4SdBir2CkDk0jusIHSNqN9CRS6RfEToWtrkY9r6LYSu0TusoCK3AIQ29tUpQtcY1y9Qoc34+jwDxtfnaatfIHQN++oUFdoFYDrKgMHxHmo6Qho1nraXedpeRho11HTE4HgvB6ajAhAMiftNrMoK7d11VDDEqq4xODlgcHKAVV1DBUPau+tYlRXifhMVDAuA/4HyP5BGFbG5SPR+j9A13JtL3JvL9B3e7xGbi0ijmp3PgYlETSRO/Qyha0ijhtA1Etkkkc1Sc+pn2fkc8LqoSY9ENhC6xsPWEtbOatq9LtbOKg9bSz9oAzXpobxuAfjqZGvvb6Q3HtWyJo/S29v7G6WzOeC+Zft2Xpl9Ppeact+YfT7z7byWWg44L3MtA/6y//0QZwaS/KwAAAAAAElFTkSuQmCC</os:Image>
+<SearchForm>http://ejje.weblio.jp/</SearchForm>
+<os:Url type="text/html" method="GET" template="http://ejje.weblio.jp/content_find">
+  <os:Param name="query" value="{searchTerms}"/>
+  <os:Param name="searchType" value="exact"/>
+</os:Url>
+</SearchPlugin>

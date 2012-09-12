@@ -1,5 +1,8 @@
 ; default input method
 (define default-im-name 'mozc)
+;(define default-im-name 'anthy-utf8)
+; mozcのvi協調モードを有効にする
+(define mozc-use-with-vi? #t)
 ; use xft
 (define uim-xim-use-xft-font? #t)
 ; font
@@ -25,7 +28,7 @@
                (_ "long description will be here"))
 
 ; off key
-(define-custom 'mozc-off-key '("<Control> " "zenkaku-hankaku")
+(define-custom 'mozc-off-key '("<Control> " "zenkaku-hankaku" "<Shift><Control> ")
                '(mozc-keys)
                '(key)
                (_ "[Mozc] off")

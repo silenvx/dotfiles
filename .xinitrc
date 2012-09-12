@@ -15,14 +15,21 @@ export LANG="en_US.UTF-8"
 #export XMODIFIERS="@im=ibus"
 #ibus-daemon -d -x
 
-# uim
-export GTK_IM_MODULE="xim"
-export QT_IM_MODULE="xim"
+# uim on gentoo
+#export GTK_IM_MODULE="xim"
+#export QT_IM_MODULE="xim"
+#export XMODIFIERS="@im=uim"
+#export UIM_CANDWIN_PROG="uim-candwin-qt4"
+#exec uim-xim &
+#exec uim-toolbar-qt4 &
+
+# uim on archlinux
+export GTK_IM_MODULE="uim"
+export QT_IM_MODULE="uim"
 export XMODIFIERS="@im=uim"
 export UIM_CANDWIN_PROG="uim-candwin-qt4"
 exec uim-xim &
-exec uim-toolbar-qt4 &
-
+#exec uim-toolbar-qt4 &
 
 # merge in defaults and keymaps
 

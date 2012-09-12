@@ -6,6 +6,8 @@ RPROMPT="%B%{[33m%}[%c]%{[m%}%b" #右側に表示されるプロンプト
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 #pathを設定
 export PATH="$PATH:$HOME/bin:$HOME/local/bin"
+#editor
+export EDITOR="vim"
 #履歴をファイルに保存する
 HISTFILE=$HOME/.zsh_history
 #メモリ内の履歴の数
