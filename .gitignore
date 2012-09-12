@@ -10,7 +10,6 @@
 !/misc
 !/README.md
 !/.screenrc
-!/symdot.sh
 !/.tmux.conf
 !/.uim
 !/.vim
@@ -21,6 +20,10 @@
 !/.xinitrc
 !/.Xresources
 !/.zshrc
+!/.setsymfunc.sh
+!/.setsymlist
+!/setsym.sh
+
 
 /.vimperator/info
 /.vim/.netrwhist

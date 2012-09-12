@@ -1,0 +1,26 @@
+# ./.setsymlistの形式
+# 基本的にはln -sに使う引数と同じで
+# default "シンボリックリンクの元のパス" "貼りたい先のパス"
+# このようにdefaultには"と"で区切らずにパスだけを"と"で区切ってください
+# コメントは行頭に#です。それ以外は受け付けません
+# default以外の識別名は./.setsymfunc.shの${SYM_FUNCLIST}を参照してください
+
+default ".emacs" "~/"
+default ".fbtermrc" "~/"
+default ".fonts.conf" "~/.config/fontconfig/fonts.conf"
+default ".screenrc" "~/"
+default ".tmux.conf" "~/"
+default ".uim" "~/"
+default ".vim" "~/"
+default ".vimperator" "~/"
+default ".vimperatorrc" "~/"
+default ".vimrc" "~/"
+default ".wgetrc" "~/"
+default ".xinitrc" "~/"
+default ".Xresources" "~/"
+default ".zshrc" "~/"
+firefox "./misc/firefox/chrome" "./"
+firefox "./misc/firefox/searchplugins" "./"
+firefox "./misc/firefox/user.js" "./"
+
+# vim: set filetype=conf:
