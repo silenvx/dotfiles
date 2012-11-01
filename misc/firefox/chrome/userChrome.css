@@ -1,9 +1,0 @@
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
-/*左上のFirefoxを消す*/
-#appmenu-button, #appmenu-toolbar-button {display:none}
-/*タブwidth幅を縮める*/
-tab {
-        width:100px !important;
-        max-width:100px !important;
-}
-#context-sendpage,#context-sendimage{display:none!important;}

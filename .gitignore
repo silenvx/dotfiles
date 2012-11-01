@@ -44,7 +44,6 @@
 !/misc/default/HOME/.urlview
 !/misc/default/HOME/.screenrc
 !/misc/default/HOME/.fbtermrc
-!/misc/default/.gitkeep
 !/misc/default/XDG_CONFIG_HOME/fontconfig/fonts.conf
 
 /misc/default/HOME/.vimperator/info
