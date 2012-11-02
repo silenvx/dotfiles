@@ -178,7 +178,7 @@ func_remove_default(){
 }
 func_test_default(){
     if [ -n "${FLAG_v}" ];then
-        printf "1:${FLAG_v}\n2:${1}\n3:${2}\n\n"
+        printf "1:${1}\n2:${2}\n\n"
     fi
 }
 func_search_default(){

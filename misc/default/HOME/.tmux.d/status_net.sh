@@ -111,7 +111,7 @@ while [ \( -e "/proc/${status_net_tmux_pid}" \) -a \( "${status_net_starttime}" 
     done
     # }}}桁数の調整
     # 結果の表示{{{
-    printf "${tmux_color}%${status_net_length}s${tmux_color_default} ${status_net_unit_0}/s down, ${tmux_color}%${status_net_length}s${tmux_color_default} ${status_net_unit_1}/s up\n" "${status_net_speed_0}" "${status_net_speed_1}" | tee "${status_net_tmp_file}" > "${status_net_tmp_file}"
+    printf "${tmux_color}%${status_net_length}s${tmux_color_default} ${status_net_unit_0}/s down, ${tmux_color}%${status_net_length}s${tmux_color_default} ${status_net_unit_1}/s up\n" "${status_net_speed_0}" "${status_net_speed_1}" > "${status_net_tmp_file}"
     # }}}結果の表示
 done
 
