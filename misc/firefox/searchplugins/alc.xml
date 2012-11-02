@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SearchPlugin xmlns="http://www.mozilla.org/2006/browser/search/">
+<ShortName>alc</ShortName>
+<Description>英辞郎 on the WEB</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Url type="text/html" method="GET" template="http://eow.alc.co.jp/search">
+  <Param name="q" value="{searchTerms}"/>
+</Url>
+<SearchForm>http://www.alc.co.jp</SearchForm>
+</SearchPlugin>

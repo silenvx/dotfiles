@@ -9,12 +9,14 @@ SYM_FUNCARG=''
 SYM_FILELIST="./.setsymlist"
 # 関数をまとめたファイル
 SYM_FUNC="./.setsymfunc.sh"
-# dotfilesを置くディレクトリ。-sか-gの時のみ使用。今のところは./から始まる値を書いてください。気が向いたらいじります
+# dotfilesを置くディレクトリ。-sか-gの時のみ使用。今のところは./から始まる値を書いてください。気が向いたらそれ以外も対応させます
 SYM_DOTFILES="./misc"
 # -gの時に無視したいファイルを取得するのに使う
 SYM_IGNOREFILE="./.gitignore"
 # ${SYM_FILELIST}の最後の行に使うコメントの文字列を指定する。面倒なのでgrepの対策はしてないです
 SYM_LISTEOF='# vim: set filetype=conf:'
+# gitignoreで自動的に追加された無視しないディレクトリリストとの境界線。コメントは行頭に#なので必ず最初に#を書くこと
+SYM_IGNORE_MESSAGE='# --- ignore ---'
 
 # ヘルプ関数{{{
 func_help(){
@@ -139,18 +141,36 @@ case ${FLAG_mode} in
     ignore)
 # gitignoreに使用する文字列の生成{{{
         func_setsym_dotfiles_check
-        SYM_IGNORELIST=`grep -v '^\(!.*\|/\*\|/\.\*\|\)$' "${SYM_IGNOREFILE}"`
-        SYM_IGNOREFIND="find ${SYM_DOTFILES} -type f"
-        printf '/*\n/.*\n\n'
+        SYM_IGNORELIST=`sed -e "$(grep -xn -m1 "${SYM_IGNORE_MESSAGE}" "${SYM_IGNOREFILE}"|sed 's/:.*$//g'),\\$!d" "${SYM_IGNOREFILE}"|grep -v '^\(!.*\|/\*\|/\.\*\|\)$'|sed -e '1d'`
+# TODO:ファイルの親ディレクトリが無視されているとファイルを無視しないようにしても無視されるのでそれを回避する文字列の出力
+# ディレクトリは無視しないけどその中のファイルは全て無視する出力{{{
+        printf '/*\n'
+        SYM_IGNOREFIND="find ${SYM_DOTFILES} -type d"
         IFS=$'\n'
         for i in ${SYM_IGNORELIST};do
             SYM_IGNOREFIND="${SYM_IGNOREFIND} -and ! -path '.${i}/*'"
         done
         for i in `eval "${SYM_IGNOREFIND% -and}"`;do
-            echo "${i}"|sed -e 's/^.\//\//g' -e 's/^/!/g'
+            i=`echo "${i}"|sed -e 's/^\.\//\//' -e's/$/\//'`
+            printf "!${i}\n${i}*\n"
+        done
+# TODO:次はこの後でやる、gitignoreに既に書いてあった無視するファイルとこの処理で自動で追加された文字列を区別させるために出力する
+        printf "${SYM_IGNORE_MESSAGE}\n\n"
+# }}}ディレクトリは無視しないけどその中のファイルは全て無視する出力
+# 無視しないファイルを出力{{{
+        SYM_IGNOREFIND="find ${SYM_DOTFILES} -type f"
+        IFS=$'\n'
+        for i in ${SYM_IGNORELIST};do
+            SYM_IGNOREFIND="${SYM_IGNOREFIND} -and ! -path '.${i}/*'"
+        done
+        for i in `eval "${SYM_IGNOREFIND% -and}"`;do
+            echo "${i}"|sed -e 's/^\.\//\//g' -e 's/^/!/g'
         done
         printf '\n'
+# }}}無視しないファイルを出力
+# 無視するファイルを出力{{{
         echo "${SYM_IGNORELIST}"
+# }}}無視するファイルを出力
         exit 0
 # }}}gitignoreに使用する文字列の生成
         ;;

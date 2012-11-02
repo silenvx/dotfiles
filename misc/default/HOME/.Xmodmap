@@ -1,0 +1,5 @@
+clear mod3
+! カタカナひらがなローマ字 キーをHyper_Lにする
+keycode 101 = Hyper_L
+! Mo3にHyper_Lを追加
+add mod3 = Hyper_L

@@ -1,0 +1,168 @@
+# 見られたくないものを書く
+source ~/.mutt/.muttrc_hidden
+
+# マルチアカウントの例{{{
+
+# ~/.mutt/.メールアドレス のファイルをそれぞれ作成して
+# gmailの場合での共有箇所は以下の ~/.mutt/.gmail.comの例 のインデントしている箇所のように書く
+# 最終行のコメントはこのファイル名ではvimでfiletypeが正常になってくれないので必要であれば書く
+# 全てを終わったら盗み見をされないようにパーティションをディレクトリは700、ファイルは600にしておく
+# アカウントを切り替えるには:source ファイル名などをしてからcキーを押すなどをしてログインが必要な動作をさせる
+# 自動で1つのアカウントをログインさせるには起動時に読み込まれるファイルにsourceで指定しておく
+
+# ~/.mutt/.メールアドレス の例{{{
+
+    #set my_account_name='ユーザー名'
+    #source ~/.mutt/.gmail.com
+    #
+    #set imap_pass='パスワード'
+    #set smtp_pass='パスワード'
+    #
+    ## vim: set filetype=muttrc:
+
+# }}}~/.mutt/.メールアドレス の例
+# ~/.mutt/.gmail.comの例{{{
+
+    #mailboxes imaps://imap.gmail.com/inbox
+    #set hostname="gmail.com"
+    #set folder='imaps://imap.gmail.com/'
+    #set imap_user="${my_account_name}@gmail.com"
+    #set spoolfile='+INBOX'
+    #
+    #set sendmail=
+    #set smtp_url="smtp://${my_account_name}@smtp.gmail.com:587/"
+    #
+    #set realname="${my_account_name}@gmail.com"
+    #set use_from="yes"
+    #set from="${my_account_name}@gmail.com"
+    #
+    #set postponed='+[Gmail]/下書き'
+    #set record=
+    #
+    ## vim: set filetype=muttrc:
+
+# }}}~/.mutt/.gmail.comの例
+
+# }}}マルチアカウントの例
+
+# メールヘッダを隠さない
+unignore *
+# ヘッダの並び順をリセットする
+unhdr_order *
+# ヘッダの並び順を決める
+hdr_order Date: Subject: From: To:
+# muttに使うエディタ
+set editor="vim %s"
+# 送る時に使う文字コード
+set send_charset='iso-2022-jp:utf-8'
+# よくわからない
+set smtp_authenticators='plain'
+# STARTTLSを使う
+set ssl_starttls=yes
+# 移動のメッセージを尋ねずに移動しない
+set move=no
+set delete=no
+# subjectがなしでも確認しない
+set abort_nosubject=no
+# 新しい日付が一番上になるようにする
+set sort=reverse-date-sent
+# これ以上下がない場合に空行にチルダ(~)を表示する
+set tilde=yes
+# メッセージの一番下にいる時に下にスクロールしても勝手に他のメッセージを開かにようにする
+set pager_stop=yes
+
+# 以下に指定したMIMEの時の動作を書いておく
+set mailcap_path="~/.mailcap"
+# このMIMEの時は自動的に動作させる(通常はvキーで選択が必要)
+auto_view text/html
+# bindのような{{{
+# index         最初の画面
+# pager         メッセージ画面
+# attach        添付ファイルの選択画面
+# compose       知らない
+# browser       change-folderの画面(?)
+
+# fでurlなどを表示
+macro index,pager,attach,compose f "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<Enter>\
+<pipe-message> urlview<Enter>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<Enter>" \
+"call urlview to extract URLs out of a message"
+# ^dでページ半分下にスクロール
+bind index,pager,attach,compose \cd half-down
+# ^uでページ半分上にスクロール
+bind index,pager,attach,compose \cu half-up
+# ^fで1ページ下にスクロール
+bind index,pager,attach,compose \cf next-page
+# ^bで1ページ上にスクロール
+bind index,pager,attach,compose \cb previous-page
+
+# ggで一番上にスクロール
+bind index gg first-entry
+# Gで一番下にスクロール
+bind index G last-entry
+# ^nで次のエントリに行く
+bind index,browser \cn next-entry
+# ^pで前のエントリに行く
+bind index,browser \cp previous-entry
+
+# メッセージの最初に飛ぶ
+bind pager gg top
+# メッセージの最後に飛ぶ
+bind pager G bottom
+# jで一行下にスクロール
+bind pager j next-line
+# ^nで一行下にスクロール
+bind pager \cn next-line
+# kで一行上にスクロール
+bind pager k previous-line
+# ^pで一行上にスクロール
+bind pager \cp previous-line
+# hで前のメッセージに行く
+bind pager h previous-undeleted
+# lで次のメッセージに行く
+bind pager l next-undeleted
+## <Space>で添付ファイルを表示する
+#bind attach <Space> view-attach
+# }}}bind
+# 色付け{{{
+# 一番上の箇所
+color status black white
+# メールヘッダのデフォルト
+color hdrdefault cyan black
+# メールヘッダのDate:から始まる場所
+color header brightblue black "^Date:"
+# メールヘッダのSubject:から始まる場所
+color header yellow black "^Subject:"
+# メールヘッダのFrom:から始まる場所
+color header brightgreen black "^From:"
+# メールヘッダのTo:から始まる場所
+color header brightgreen black "^To:"
+# メールヘッダのCc:から始まる場所
+color header brightgreen black "^Cc:"
+# 本文のftp,http,httpsプロトコルのアドレスの場所
+color body brightcyan black "(ftp|http|https)://[^ ]+"
+# 本文のメールアドレスの場所
+color body brightcyan black "[-a-zA-Z0-9_.]+@[-a-zA-Z0-9_.]+"
+# 現在選択している件名
+color indicator brightwhite black
+# 下に出る通常メッセージ
+color message brightwhite red
+# 下に出るエラーメッセージ
+color error black yellow
+# 添付
+color attachment brightmagenta black
+# }}}色付け
+# モノクロの時の区別{{{
+# 本文のftp,http,httpsプロトコルのアドレスの場所
+mono body underline "(ftp|http|https)://[^ ]+"
+# 本文のメールアドレスの場所
+mono body underline "[-a-zA-Z0-9_.]+@[-a-zA-Z0-9_.]+"
+# 現在選択している件名
+mono indicator bold
+# 下に出るエラーメッセージ
+mono error bold
+# }}}モノクロの時の区別
+
+# vim: fdm=marker:
+

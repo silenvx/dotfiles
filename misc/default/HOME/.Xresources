@@ -1,0 +1,157 @@
+! 80桁24行の端末を表示
+XTerm*geometry: 80x24
+! utf8 encoding
+XTerm*utf8: 1
+! 多分utf8関連
+XTerm*locale: true
+! utf8のタイトル
+XTerm*utf8Title: true
+! altをmetaキーとして送信できるようにする
+XTerm*metaSendsEscape: true
+! 多分16bitのシーケンス制御に対応する
+XTerm*wideChars: true
+! 以下2行はよくわかっていない
+XTerm*eightBitInput:false
+XTerm*eightBitOutput:true
+! Hyper_LにESC <F12>を割り当てる
+XTerm*translations: #override <Key>Hyper_L: string("\033\033[24~")
+! 記号などを全角で表示する (charmapで対応した方が良い)
+!XTerm*cjkWidth: true
+! 文字の幅を正しくする機能は不具合が出るのでoff
+XTerm*forcePackedFont: false
+! フォント (RictyZnはRictyに中国語フォントをマージさせたもの。幅が少しおかしいのでfonts.confで設定するかfaceNameにRictyなどの設定が必須)
+XTerm*faceName: Ricty
+! マルチバイト文字のフォント
+!XTerm*faceNameDoublesize: Ricty
+XTerm*faceNameDoublesize: RictyZn
+! xim
+XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
+! フォントのサイズ
+XTerm*faceSize: 9
+! $TERMのシェル変数
+XTerm*xtermName: xterm-256color
+! xtermの色 その1 (その辺のdotfileから拝借。全体の色のバランスがない気が)
+!XTerm*background: #000010
+!XTerm*foreground: #ffffff
+!XTerm*color0: #000000
+!XTerm*color1: #9e1828
+!XTerm*color2: #aece92
+!XTerm*color3: #968a38
+!XTerm*color4: #414171
+!XTerm*color5: #963c59
+!XTerm*color6: #418179
+!XTerm*color7: #bebebe
+!XTerm*color8: #666666
+!XTerm*color9: #cf6171
+!XTerm*color10: #c5f779
+!XTerm*color11: #fff796
+!XTerm*color12: #4186be
+!XTerm*color13: #cf9ebe
+!XTerm*color14: #71bebe
+!XTerm*color15: #ffffff
+!XTerm*cursorColor: magenta
+!
+! xtermの色 その2 (濃い目。誰かのmacのスクリーンショットから抽出。文字だと青が読みにくい)
+!XTerm*background: #000010
+!XTerm*foreground: #ffffff
+!XTerm*color0: #444444
+!XTerm*color1: #aa1915
+!XTerm*color2: #76a636
+!XTerm*color3: #ffd348
+!XTerm*color4: #004575
+!XTerm*color5: #7a4775
+!XTerm*color6: #77a8d1
+!XTerm*color7: #a8a8a8
+!XTerm*color8: #787878
+!XTerm*color9: #ff2747
+!XTerm*color10: #73d144
+!XTerm*color11: #fffd54
+!XTerm*color12: #007cf6
+!XTerm*color13: #aa7ccf
+!XTerm*color14: #74d4fb
+!XTerm*color15: #ffffff
+!XTerm*cursorColor: magenta
+!
+! xtermの色 その3
+!XTerm*background: #000000
+!XTerm*foreground: #ffffff
+!XTerm*color0: #111111
+!XTerm*color1: #aa1915
+!XTerm*color2: #76a636
+!XTerm*color3: #ffd348
+!XTerm*color4: #007cf6
+!XTerm*color5: #7a4775
+!XTerm*color6: #77a8d1
+!XTerm*color7: #aaaaaa
+!XTerm*color8: #555555
+!XTerm*color9: #ff2747
+!XTerm*color10: #73d144
+!XTerm*color11: #fffd54
+!XTerm*color12: #508cff
+!XTerm*color13: #aa7ccf
+!XTerm*color14: #74d4fb
+!XTerm*color15: #eeeeee
+!XTerm*cursorColor: magenta
+!
+! xtermの色 オリジナル (色がはっきりしすぎている)
+!XTerm*background: #000010
+!XTerm*foreground: #ffffff
+!XTerm*color0: #333333
+!XTerm*color1: #bb5555
+!XTerm*color2: #55bb55
+!XTerm*color3: #bbbb55
+!XTerm*color4: #4455cc
+!XTerm*color5: #bb55bb
+!XTerm*color6: #55bbbb
+!XTerm*color7: #bbbbbb
+!XTerm*color8: #777777
+!XTerm*color9: #ff6644
+!XTerm*color10: #99ff55
+!XTerm*color11: #ffff66
+!XTerm*color12: #5599ff
+!XTerm*color13: #ff66ff
+!XTerm*color14: #66ffff
+!XTerm*color15: #ffffff
+!XTerm*cursorColor: magenta
+
+! xtermの色 改 (wombat256mod.vimからパクったりした。)
+XTerm*background: #000000
+XTerm*foreground: #ffffff
+!XTerm*color0: #444444
+XTerm*color0: #242424
+!XTerm*color1: #ff5f55
+!XTerm*color1: #8f0000
+XTerm*color1: #952519
+!XTerm*color1: #ff2747
+!XTerm*color1: #e36319
+!XTerm*color2: #95e454
+!XTerm*color2: #73d144
+XTerm*color2: #69821b
+!XTerm*color2: #65b042
+XTerm*color3: #af8700
+!XTerm*color4: #4186be
+XTerm*color4: #3387cc
+!XTerm*color5: #bb55bb
+XTerm*color5: #a757a8
+XTerm*color6: #418179
+XTerm*color7: #a0a8b0
+!XTerm*color8: #626262
+XTerm*color8: #444444
+!XTerm*color9: #e5786d
+!XTerm*color9: #ff5f55
+!XTerm*color9: #ffaa55
+XTerm*color9: #ff5f55
+!XTerm*color9: #ff6600
+!XTerm*color9: #ef454a
+!XTerm*color9: #f26649
+!XTerm*color10: #cae982
+!XTerm*color10: #99ff55
+XTerm*color10: #73d144
+!XTerm*color11: #fffd54
+XTerm*color11: #ffd348
+!XTerm*color12: #88b8f6
+XTerm*color12: #89bdff
+XTerm*color13: #d787ff
+XTerm*color14: #71bebe
+XTerm*color15: #c3c6ca
+XTerm*cursorColor: magenta
