@@ -17,7 +17,7 @@ status_net_length='4'
 status_net_sleep_time='1'
 # }}}設定用変数
 # 多重起動チェック{{{
-if [ "${$}" != `pgrep -fo "${0}"` ];then
+if [ "${$}" != `pgrep -xfo "/bin/sh ${0}"` ];then
     if [ -f "${status_net_tmp_file}" ];then
         cat "${status_net_tmp_file}"
     fi

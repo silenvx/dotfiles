@@ -15,8 +15,8 @@ status_cpu_view='us sy ni wa id'
 status_cpu_sleep_time='1'
 # }}}設定用変数
 # 多重起動チェック{{{
-if [ "${$}" != `pgrep -fo "${0}"` ];then
-    if [ -e "${status_cpu_tmp_file}" ];then
+if [ "${$}" != `pgrep -xfo "/bin/sh ${0}"` ];then
+    if [ -f "${status_cpu_tmp_file}" ];then
         cat "${status_cpu_tmp_file}"
     fi
     exit 1

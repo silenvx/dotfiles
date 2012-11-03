@@ -9,7 +9,7 @@ tmux_color='#[fg=blue,underscore]'
 tmux_color_default="${tmux_color:+#[default]}"
 # }}}設定用変数
 # 多重起動チェック{{{
-if [ "${$}" != `pgrep -fo "${0}"` ];then
+if [ "${$}" != `pgrep -xfo "/bin/sh ${0}"` ];then
     if [ -f "${status_mem_tmp_file}" ];then
         cat "${status_mem_tmp_file}"
     fi

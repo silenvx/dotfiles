@@ -8,10 +8,14 @@ firefox 2'
 
 # ${SYM_FUNCLIST}に書いた識別名の処理を書きます
 # -iの時にはfunc_install_識別名
-# -rの時にはfunc_remove_識別名 が呼び出されます
+# -rの時にはfunc_remove_識別名
+# -tの時にはfunc_test_識別名
+# -sの時にはfunc_search_識別名
+# が呼び出されます
 #
 # -fは${FLAG_f}でtrueもしくはfalseになっていて有効だとtrueになります
-# -fの処理や関数は各自で作成してください
+# -vは${FLAG_v}でtrueもしくはfalseになっていて有効だとtrueになります
+# -fや-vの処理や関数は各自で作成してください
 func_force_clean(){ #{{{
     if [ -d "${2}" -a -e "${2}/${1##*/}" ];then
         if [ -n "${FLAG_v}" ];then
@@ -57,7 +61,7 @@ func_force_clean(){ #{{{
 # 外部からこの関数を使うなら
 # func_install_default <source> <dest>と大体同じです
 # -fで既にファイルがあった場合それを消してln -sをする
-func_install_default(){
+func_install_default(){ #{{{
     LN_SOURCE="$(eval eval realpath -ms ${1})"
     LN_DEST="$(eval eval realpath -ms ${2})"
     if [ -n "${FLAG_f}" ];then
@@ -112,8 +116,8 @@ func_install_default(){
         fi
         return 1
     fi
-}
-func_remove_default(){
+} #}}}
+func_remove_default(){ #{{{
     LN_SOURCE="$(eval eval realpath -ms ${1})"
     LN_DEST="$(eval eval realpath -ms ${2})"
     if [ -n "${FLAG_f}" ];then
@@ -175,18 +179,18 @@ func_remove_default(){
         fi
         return 1
     fi
-}
-func_test_default(){
+} #}}}
+func_test_default(){ #{{{
     if [ -n "${FLAG_v}" ];then
         printf "1:${1}\n2:${2}\n\n"
     fi
-}
-func_search_default(){
+} #}}}
+func_search_default(){ #{{{
 # TODO:エスケープを1つ外すためにevalを使っている
     for j in `eval find "${SYM_DOTFILES}/default" -maxdepth 2 -mindepth 2`;do
         printf "default \"${j}\" \"`echo "${j}"|sed -e "s/^${SYM_DOTFILES}\/default\//\$\{/" -e 's/\/.*/}\//'`\"\n"
     done
-}
+} #}}}
 # }}}default
 # firefox{{{
 
@@ -196,7 +200,7 @@ func_search_default(){
 # 複数プロファイルがあった場合はメニューを表示して入力待ちをします
 # func_firefox_profileがそういうプロファイルの場所を決める関数です
 FIREFOX_PROFILES_INI=`realpath ~/.mozilla/firefox/profiles.ini`
-func_firefox_profile(){
+func_firefox_profile(){ #{{{
     if [ -f "${FIREFOX_PROFILES_INI}" ];then
         i=0
         IFS=$'\n'
@@ -235,35 +239,35 @@ func_firefox_profile(){
         echo "${FIREFOX_PROFILES_INI}が見つかりませんでした" >&2
         return 1
     fi
-}
-func_install_firefox(){
+} #}}}
+func_install_firefox(){ #{{{
     FIREFOX_PROFILE_PATH=`func_firefox_profile`
     if [ "${?}" == "1" ];then
         return 1
     fi
     func_install_default "${1}" "${FIREFOX_PROFILE_PATH}/${2}"
-}
-func_remove_firefox(){
+} #}}}
+func_remove_firefox(){ #{{{
     FIREFOX_PROFILE_PATH=`func_firefox_profile`
     if [ "${?}" == "1" ];then
         return 1
     fi
     func_remove_default "${1}" "${FIREFOX_PROFILE_PATH}/${2}"
-}
-func_test_firefox(){
+} #}}}
+func_test_firefox(){ #{{{
     if [ -n "${FLAG_v}" ];then
         printf "1:${1}\n2:${2}\n\n"
     fi
-}
-func_search_firefox(){
+} #}}}
+func_search_firefox(){ #{{{
 # TODO:エスケープを1つ外すためにevalを使っている
     for j in `eval find "${SYM_DOTFILES}/firefox/" -maxdepth 1 -mindepth 1`;do
         printf "firefox \"${j}\" \"./\"\n"
     done
-}
+} #}}}
 # }}}firefox
-# }}}setsym.shに呼び出される関数
 # その他特殊な関数{{{
 # }}}その他特殊な関数
+# }}}setsym.shに呼び出される関数
 
 # vim: set fdm=marker:
