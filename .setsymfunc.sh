@@ -13,8 +13,8 @@ firefox 2'
 # -sの時にはfunc_search_識別名
 # が呼び出されます
 #
-# -fは${FLAG_f}でtrueもしくはfalseになっていて有効だとtrueになります
-# -vは${FLAG_v}でtrueもしくはfalseになっていて有効だとtrueになります
+# -fは${FLAG_f}でtrueもしくはNULLになっていて有効だと1文字以上の文字があります
+# -vは${FLAG_v}でtrueもしくはNULLになっていて有効だと1文字以上の文字があります
 # -fや-vの処理や関数は各自で作成してください
 func_force_clean(){ #{{{
     if [ -d "${2}" -a -e "${2}/${1##*/}" ];then
