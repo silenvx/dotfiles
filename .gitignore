@@ -1,4 +1,12 @@
 /*
+
+!/.gitignore
+!/.gitmodules
+!/README.md
+!/.setsymfunc.sh
+!/.setsymlist
+!/setsym.sh
+
 !/misc/
 /misc/*
 !/misc/firefox/

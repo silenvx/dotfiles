@@ -32,7 +32,7 @@ ${0##*/} version:${VERSION}
 -g          .gitignoreに書けそうな物を出力する
 -v          よくあるverbose。要はこれがあると詳細な出力を-iや-rなどの時にします
 -t          テスト(デバッグ)用のオプション
--h          このヘルプを表示
+-h          このヘルプを表示。詳しいマニュアルはREADME.mdを参照
 ----------
 例: ${0##*/} -if -l ${SYM_FILELIST}
 ----------
@@ -127,7 +127,7 @@ func_setsym_dotfiles_check(){ #{{{
     SYM_DOTFILES=$(echo "${SYM_DOTFILES}"|sed -e 's/\(\.\|\*\|\^\|\$\|\\\|\/\|\[\|\]\)/\\\1/g')
 } #}}}
 case ${FLAG_mode} in
-    search)
+    search) #{{{
         func_setsym_dotfiles_check
         grep -v "^${SYM_LISTEOF}" "${SYM_FILELIST}"|grep '^ *#' && printf '\n'
         IFS=$'\n'
@@ -137,14 +137,25 @@ case ${FLAG_mode} in
         done
         echo "${SYM_LISTEOF}"
         exit 0
-        ;;
-    ignore)
-# gitignoreに使用する文字列の生成{{{
+        ;; #}}}
+    ignore) #{{{
         func_setsym_dotfiles_check
         SYM_IGNORELIST=`sed -e "$(grep -xn -m1 "${SYM_IGNORE_MESSAGE}" "${SYM_IGNOREFILE}"|sed 's/:.*$//g'),\\$!d" "${SYM_IGNOREFILE}"|grep -v '^\(!.*\|/\*\|/\.\*\|\)$'|sed -e '1d'`
 # TODO:ファイルの親ディレクトリが無視されているとファイルを無視しないようにしても無視されるのでそれを回避する文字列の出力
 # ディレクトリは無視しないけどその中のファイルは全て無視する出力{{{
-        printf '/*\n'
+# ディレクトリ全体の無視と、これらのスクリプト等を無視しない出力{{{
+        cat << __EOF__
+/*
+
+!/.gitignore
+!/.gitmodules
+!/README.md
+!/.setsymfunc.sh
+!/.setsymlist
+!/setsym.sh
+
+__EOF__
+# }}}ディレクトリ全体の無視と、これらのスクリプトを無視しない出力
         SYM_IGNOREFIND="find ${SYM_DOTFILES} -type d"
         IFS=$'\n'
         for i in ${SYM_IGNORELIST};do
@@ -172,8 +183,7 @@ case ${FLAG_mode} in
         echo "${SYM_IGNORELIST}"
 # }}}無視するファイルを出力
         exit 0
-# }}}gitignoreに使用する文字列の生成
-        ;;
+        ;; #}}}
 esac
 # }}}${SYM_FILELIST}を必要としない処理を実行
 # ${SYM_FILELIST}の構文チェック{{{
