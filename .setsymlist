@@ -26,6 +26,7 @@ default "./misc/default/HOME/.urlview" "${HOME}/"
 default "./misc/default/HOME/.screenrc" "${HOME}/"
 default "./misc/default/HOME/.fbtermrc" "${HOME}/"
 default "./misc/default/XDG_CONFIG_HOME/fontconfig" "${XDG_CONFIG_HOME}/"
+default "./misc/default/XDG_CONFIG_HOME/awesome" "${XDG_CONFIG_HOME}/"
 
 firefox "./misc/firefox/searchplugins" "./"
 firefox "./misc/firefox/user.js" "./"

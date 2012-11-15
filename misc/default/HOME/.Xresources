@@ -30,6 +30,8 @@ XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
 XTerm*faceSize: 9
 ! $TERMのシェル変数
 XTerm*xtermName: xterm-256color
+! クリップボードの共有
+XTerm*selectToClipboard: true
 ! xtermの色 その1 (その辺のdotfileから拝借。全体の色のバランスがない気が)
 !XTerm*background: #000010
 !XTerm*foreground: #ffffff
@@ -114,7 +116,7 @@ XTerm*xtermName: xterm-256color
 !XTerm*color15: #ffffff
 !XTerm*cursorColor: magenta
 
-! xtermの色 改 (wombat256mod.vimからパクったりした。)
+! xtermの色 改 (wombat256mod.vimからパクったりした。黒以外の色で背景が黒でも見やすくて区別できるかも)
 XTerm*background: #000000
 XTerm*foreground: #ffffff
 !XTerm*color0: #444444

@@ -48,7 +48,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #zstyle ':completion:*:sudo:*' command-path /usr/local/bin /usr/bin /bin /opt/bin /usr/local/sbin /usr/sbin /sbin
 # killのプロセスの補完をカスタマイズ
 # zstyle ':completion:*:*:kill:*:processes' command 'ps x -o pid,etime,state,comm,args'
-zstyle ':completion:*:processes' command 'ps x -o pid,etime,stat,sgi_p,comm,args'
+zstyle ':completion:*:processes' command 'ps -A o "pid etime stat sgi_p comm args"'
 # }}}zstyle completion
 # bindkey{{{
 # キーバインドをemacs風にする
