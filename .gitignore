@@ -45,6 +45,8 @@
 /misc/default/HOME/.vimperator/colors/*
 !/misc/default/HOME/.vimperator/info/
 /misc/default/HOME/.vimperator/info/*
+!/misc/default/HOME/.mplayer/
+/misc/default/HOME/.mplayer/*
 !/misc/default/XDG_CONFIG_HOME/
 /misc/default/XDG_CONFIG_HOME/*
 !/misc/default/XDG_CONFIG_HOME/fontconfig/
@@ -91,6 +93,8 @@
 !/misc/default/HOME/.dir_colors
 !/misc/default/HOME/.muttrc
 !/misc/default/HOME/.mailcap
+!/misc/default/HOME/.mplayer/input.conf
+!/misc/default/HOME/.mplayer/config
 !/misc/default/HOME/.tmux.conf
 !/misc/default/HOME/.vimperatorrc
 !/misc/default/HOME/.zshrc
