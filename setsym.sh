@@ -117,7 +117,7 @@ fi
 source "${SYM_FUNC}"
 
 
-#}}}初期エラーチェック
+# }}}初期エラーチェック
 # ${SYM_FILELIST}を必要としない処理を実行{{{
 func_setsym_dotfiles_check(){ #{{{
     if [ ! -d  "${SYM_DOTFILES}" ];then
