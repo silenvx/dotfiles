@@ -8,7 +8,7 @@ tmux_color='#[fg=cyan,underscore]'
 # 数値の後ろに使われる色などをtmux形式で書く
 tmux_color_default="${tmux_color:+#[default]}"
 # 観測するインターフェイス名
-status_net_interface='wlan0'
+status_net_interface='enp1s8'
 # 表示するのに使う単位を書く(左から2^10,2^20と累乗が10ずつ増えていく計算式になっています)
 status_net_unit='KiB MiB GiB TiB PiB EiB ZiB YiB'
 # 数値の長さを書く。小数点含む

@@ -75,6 +75,8 @@ set pager_stop=yes
 set mailcap_path="~/.mailcap"
 # このMIMEの時は自動的に動作させる(通常はvキーで選択が必要)
 auto_view text/html
+# ヘッダのキャッシュ
+set header_cache="~/.mutt/cache/headers"
 # bindのような{{{
 # index         最初の画面
 # pager         メッセージ画面
