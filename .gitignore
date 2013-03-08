@@ -21,6 +21,10 @@
 /misc/root/etc/*
 !/misc/root/etc/X11/
 /misc/root/etc/X11/*
+!/misc/root/etc/systemd/
+/misc/root/etc/systemd/*
+!/misc/root/etc/systemd/system/
+/misc/root/etc/systemd/system/*
 !/misc/default/
 /misc/default/*
 !/misc/default/HOME/
@@ -67,6 +71,8 @@
 !/misc/root/etc/X11/xorg.conf
 !/misc/root/etc/eixrc
 !/misc/root/etc/ntp.conf
+!/misc/root/etc/systemd/system/network@.service
+!/misc/root/etc/systemd/system/getty@.service
 !/misc/root/etc/eix-sync.conf
 !/misc/root/etc/motd
 !/misc/root/etc/make.conf
@@ -77,6 +83,7 @@
 !/misc/default/HOME/.xinitrc
 !/misc/default/HOME/.tmux.d/status_mem.sh
 !/misc/default/HOME/.tmux.d/status_cpu.sh
+!/misc/default/HOME/.tmux.d/status_wireless.sh
 !/misc/default/HOME/.tmux.d/status_net.sh
 !/misc/default/HOME/.Xresources
 !/misc/default/HOME/.uim

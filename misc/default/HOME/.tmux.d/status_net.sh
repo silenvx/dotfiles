@@ -2,7 +2,7 @@
 cd "$(dirname ${0})"
 # 設定用変数{{{
 # 出力先のファイルを置く場所を書く
-status_net_tmp_file='./tmp/tmp_net'
+status_net_tmp_file='/tmp/tmux_tmp_net'
 # 数値に使われる色などをtmux形式で書く
 tmux_color='#[fg=cyan,underscore]'
 # 数値の後ろに使われる色などをtmux形式で書く

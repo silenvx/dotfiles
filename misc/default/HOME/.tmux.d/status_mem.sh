@@ -2,7 +2,7 @@
 cd "$(dirname ${0})"
 # 設定用変数{{{
 # 出力先のファイルを置く場所を書く
-status_mem_tmp_file='./tmp/tmp_mem'
+status_mem_tmp_file='/tmp/tmux_tmp_mem'
 # 数値に使われる色などをtmux形式で書く
 tmux_color='#[fg=blue,underscore]'
 # 数値の後ろに使われる色などをtmux形式で書く
