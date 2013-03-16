@@ -14,3 +14,5 @@ zoom=1
 cache=8192
 # 再生を始める前に貯める最小のキャッシュ
 cache-min=0
+# useragent、wgetなどと合わせておくと良い
+user-agent='Mozilla/5.0 (X11; Linux i686; rv:10.0.4) Gecko/20100101 Firefox/10.0.4'

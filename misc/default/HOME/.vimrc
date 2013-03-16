@@ -35,6 +35,8 @@ Bundle 'mattn/gist-vim'
 Bundle 'mattn/webapi-vim'
 " rtorrentのsyntax
 Bundle 'rtorrent-syntax-file'
+" actionscriptのsyntax
+Bundle 'vim-scripts/actionscript.vim--Leider'
 " }}}vundleの設定
 
 " pluginとindentをon
@@ -164,6 +166,9 @@ autocmd BufNewFile,BufRead .vimperatorrc set filetype=vimperator
 autocmd BufNewFile,BufRead *.ebuild set textwidth=0
 " .rctorrent.rc
 autocmd BufNewfile,BufRead .rtorrent.rc set filetype=rtorrent
+" actionscript
+autocmd BufNewfile,BufRead *.as set filetype=actionscript
+
 " motemen/hatena-vim hatenaのユーザー名
 let g:hatena_user="silenvx"
 " motemen/hatena-vim 保存をしても勝手に送信しないようする

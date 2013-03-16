@@ -97,6 +97,7 @@
 !/misc/default/HOME/.vimperator/plugin/appendAnchor.js
 !/misc/default/HOME/.vimperator/plugin/statusline-toolbar.js
 !/misc/default/HOME/.vimperator/colors/vimPgray.vimp
+!/misc/default/HOME/.curlrc
 !/misc/default/HOME/.dir_colors
 !/misc/default/HOME/.muttrc
 !/misc/default/HOME/.mailcap
@@ -109,6 +110,7 @@
 !/misc/default/HOME/.urlview
 !/misc/default/HOME/.screenrc
 !/misc/default/HOME/.fbtermrc
+!/misc/default/HOME/.gdbinit
 !/misc/default/XDG_CONFIG_HOME/fontconfig/fonts.conf
 !/misc/default/XDG_CONFIG_HOME/awesome/themes/theme.lua
 !/misc/default/XDG_CONFIG_HOME/awesome/themes/background.svg

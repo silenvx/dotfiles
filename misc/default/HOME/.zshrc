@@ -13,6 +13,8 @@ export PATH="$PATH:$HOME/bin:$HOME/local/bin:$HOME/dev/git/github/bin"
 export EDITOR="vim"
 # browser
 export BROWSER="w3m"
+# XDGの設定する場所
+export XDG_CONFIG_HOME="$HOME/.config"
 # 履歴をファイルに保存する
 HISTFILE=$HOME/.zsh_history
 # メモリ内の履歴の数
