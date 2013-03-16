@@ -86,6 +86,7 @@
 !/misc/default/HOME/.tmux.d/status_wireless.sh
 !/misc/default/HOME/.tmux.d/status_net.sh
 !/misc/default/HOME/.Xresources
+!/misc/default/HOME/.gitconfig
 !/misc/default/HOME/.uim
 !/misc/default/HOME/.vim/syntax/vimperator.vim
 !/misc/default/HOME/.vimperator/plugin/hints-ext.js
