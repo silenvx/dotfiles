@@ -31,7 +31,7 @@ compinit -u
 # 文字列関連
 autoload -Uz select-word-style
 select-word-style default
-zstyle ':zle:*' word-chars " _-./;@"
+zstyle ':zle:*' word-chars " _-./;@'\""
 zstyle ':zle:*' word-style unspecified
 # dircolors load
 if [ -f ~/.dir_colors ];then

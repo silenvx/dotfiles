@@ -12,7 +12,13 @@ fixed-vo=1
 zoom=1
 # キャッシュ。ストリーミング再生などをした時にあったら便利
 cache=8192
-# 再生を始める前に貯める最小のキャッシュ
-cache-min=0
+# 再生を始める前に貯める最小のキャッシュ (ある程度ないとキャッシュが全くない時にログが大量に流れる)
+cache-min=5
 # useragent、wgetなどと合わせておくと良い
 user-agent='Mozilla/5.0 (X11; Linux i686; rv:10.0.4) Gecko/20100101 Firefox/10.0.4'
+# 現在の再生時間/全体の再生時間 を表示
+osdlevel=3
+# フォントサイズをptとして扱う
+subfont-autoscale=0
+# osdのフォントサイズ
+subfont-osd-scale=12
