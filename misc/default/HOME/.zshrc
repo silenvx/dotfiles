@@ -8,7 +8,7 @@ alias ls='ls --color=auto'
 # 単語の区切りではない文字を指定する
 export WORDCHARS="*?_-.[]~=&;!# $%^(){}<>"
 # pathを設定
-export PATH="$PATH:$HOME/bin:$HOME/local/bin:$HOME/dev/git/github/bin"
+export PATH="$PATH:$HOME/bin:$HOME/local/bin:$HOME/misc/dev/git/bin"
 # editor
 export EDITOR="vim"
 # browser

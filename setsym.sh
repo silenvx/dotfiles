@@ -36,7 +36,7 @@ ${0##*/} version:${VERSION}
 ----------
 例: ${0##*/} -if -l ${SYM_FILELIST}
 ----------
-注意:-sと-gの時に直接.symfilelistや.gitignoreにリダイレクト(出力)しないこと。ほとんどの場合は消えます
+注意:-sと-gの時に直接.setsymlistや.gitignoreにリダイレクト(出力)しないこと。ほとんどの場合は消えます
 回避するには一時的に適当なファイルに出力した後にmvさせる
 __EOF__
     exit 0

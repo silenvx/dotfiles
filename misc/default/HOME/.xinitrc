@@ -24,7 +24,8 @@ export LANG="en_US.UTF-8"
 #exec uim-toolbar-qt4 &
 
 # uim on archlinux
-export GTK_IM_MODULE="uim"
+export XIM="uim"
+export GTK_IM_MODULE=xim
 export QT_IM_MODULE="uim"
 export XMODIFIERS="@im=uim"
 export UIM_CANDWIN_PROG="uim-candwin-qt4"

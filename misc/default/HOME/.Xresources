@@ -23,7 +23,7 @@ XTerm*forcePackedFont: false
 XTerm*faceName: Ricty
 ! マルチバイト文字のフォント
 !XTerm*faceNameDoublesize: Ricty
-XTerm*faceNameDoublesize: RictyZn
+XTerm*faceNameDoublesize: Ricty
 ! xim
 XTerm*ximFont: -misc-fixed-medium-r-normal--14-130-75-75-c-140-jisx0208.1983-0
 ! フォントのサイズ

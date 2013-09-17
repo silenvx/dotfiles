@@ -37,6 +37,8 @@ user_pref("browser.showQuitWarning",true);
 user_pref("browser.search.defaultenginename","Google");
 // 新しいタブをabout:blankにする
 user_pref("browser.newtab.url","about:blank");
+// home page
+user_pref("browser.startup.homepage","about:blank");
 // browser.cache.*{{{
 // メモリキャッシュの量を指定
 user_pref("browser.cache.memory.capacity",1024);

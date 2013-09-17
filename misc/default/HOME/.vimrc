@@ -3,7 +3,7 @@
 " vundleの設定{{{
 set nocompatible
 filetype off
-set runtimepath+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/vundle.git
 call vundle#rc()
 " vundle for vundle
 Bundle 'gmarik/vundle'
