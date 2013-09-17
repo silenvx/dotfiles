@@ -1,0 +1,9 @@
+[user]
+	name = silenvx
+	email = czvziwzx@gmail.com
+[push]
+	default = simple
+[core]
+	editor = vim
+[color]
+	ui = true

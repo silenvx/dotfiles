@@ -1,0 +1,51 @@
+# proxy
+http_proxy="127.0.0.1:8118"
+proxy_address="127.0.0.1:8118"
+ip=127.0.0.1
+bind=127.0.0.1
+
+# udp tracker
+use_udp_trackers=no
+# dht
+dht=disable
+# dhtのポート番号
+dht_port=6881
+# ピア同士でピアを交換するか
+peer_exchange=yes
+
+# 暗号化について
+encryption=allow_incoming,enable_retry,prefer_plaintext
+
+# ハッシュのチェックをするか
+check_hash=yes
+
+# ダウンロード先
+directory=~/misc/download/torrent/download/
+
+# セッションの保存先
+session=~/misc/download/torrent/session
+
+# loadに書いたディレクトリに.torrentがあるならば自動で追加する
+schedule=watch_directory,5,5,"load=~/misc/download/torrent/watch/*.torrent,d.set_custom1=~/misc/download/torrent/complete/"
+# 関連付けしたファイルが消えたらそのトレントを停止する
+schedule=untied_directory,5,5,stop_untied=
+
+# 最大ダウンロード速度
+download_rate=1800
+# 最大アップロード速度
+upload_rate=1
+
+# peer
+min_peers=40
+max_peers=1024
+min_peers_seed=0
+max_peers_seed=0
+max_uploads=8
+
+# rtorrentが使用するLISTENのポート番号
+port_range=6890-6999
+# port_rangeに書いた範囲のポート番号をランダムで使用する
+port_random=yes
+
+# ダウンロードが完了したら移動する
+system.method.set_key=event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ;execute=mv,-u,$d.get_base_path=,$d.get_custom1="
