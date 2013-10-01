@@ -63,11 +63,12 @@
 !/misc/root/etc/ntp.conf
 !/misc/root/etc/make.conf
 !/misc/root/etc/eix-sync.conf
+!/misc/root/etc/resolv.conf
 !/misc/default/XDG_CONFIG_HOME/fontconfig/fonts.conf
 !/misc/default/XDG_CONFIG_HOME/awesome/rc.lua
 !/misc/default/XDG_CONFIG_HOME/awesome/themes/theme.lua
 !/misc/default/XDG_CONFIG_HOME/awesome/themes/background.svg
-!/misc/default/HOME/.vimperator/plugin/hints-ext.js.1
+!/misc/default/HOME/.vimperator/plugin/pluginManager.js
 !/misc/default/HOME/.vimperator/plugin/statusline-toolbar.js
 !/misc/default/HOME/.vimperator/plugin/_libly.js
 !/misc/default/HOME/.vimperator/plugin/copy.js
@@ -77,6 +78,7 @@
 !/misc/default/HOME/.vimperator/plugin/stella.js
 !/misc/default/HOME/.vimperator/plugin/walk-input.js
 !/misc/default/HOME/.vimperator/colors/vimPgray.vimp
+!/misc/default/HOME/.vimperator/gplug.sh
 !/misc/default/HOME/.mplayer/config
 !/misc/default/HOME/.mplayer/input.conf
 !/misc/default/HOME/.emacs

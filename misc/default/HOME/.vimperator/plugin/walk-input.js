@@ -139,3 +139,8 @@ mappings.addUserMap([modes.NORMAL, modes.INSERT], ['<M-S-i>', '<A-S-i>'],
                     'Walk Input Fields (Backward)', function () walkinput(false));
 
 })();
+) walkinput(true));
+mappings.addUserMap([modes.NORMAL, modes.INSERT], mapBackward.split(/\s+/),
+                    'Walk Input Fields (Backward)', function () walkinput(false));
+
+})();

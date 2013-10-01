@@ -168,6 +168,8 @@ autocmd BufNewFile,BufRead *.ebuild set textwidth=0
 autocmd BufNewfile,BufRead .rtorrent.rc set filetype=rtorrent
 " actionscript
 autocmd BufNewfile,BufRead *.as set filetype=actionscript
+" *.php
+autocmd BufNewfile,BufRead *.php set filetype=html
 
 " motemen/hatena-vim hatenaのユーザー名
 let g:hatena_user="silenvx"
