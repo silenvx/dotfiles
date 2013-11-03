@@ -15,6 +15,10 @@
 /misc/root/etc/*
 !/misc/root/etc/X11/
 /misc/root/etc/X11/*
+!/misc/root/etc/systemd/
+/misc/root/etc/systemd/*
+!/misc/root/etc/systemd/system/
+/misc/root/etc/systemd/system/*
 !/misc/default/
 /misc/default/*
 !/misc/default/XDG_CONFIG_HOME/
@@ -64,6 +68,7 @@
 !/misc/root/etc/make.conf
 !/misc/root/etc/eix-sync.conf
 !/misc/root/etc/resolv.conf
+!/misc/root/etc/systemd/system/wpa_supplicant@wlan0.service
 !/misc/default/XDG_CONFIG_HOME/fontconfig/fonts.conf
 !/misc/default/XDG_CONFIG_HOME/awesome/rc.lua
 !/misc/default/XDG_CONFIG_HOME/awesome/themes/theme.lua
