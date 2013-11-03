@@ -98,6 +98,7 @@
 !/misc/default/HOME/.fbtermrc
 !/misc/default/HOME/.uim
 !/misc/default/HOME/.screenrc
+!/misc/default/HOME/.xprofile
 !/misc/default/HOME/.proxychains/proxychains.conf
 !/misc/default/HOME/.wgetrc
 !/misc/default/HOME/.gdbinit
