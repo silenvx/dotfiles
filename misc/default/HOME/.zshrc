@@ -3,8 +3,11 @@ PROMPT="%B%{[34m%}[%*] %{[32m%}%n@%m %{[37m%}%# %{[m%}%b" #  通常のプロ
 PROMPT2="%B%_>%b" # 二行目以降に表示されるプロンプト
 RPROMPT="%B%{[33m%}[%c]%{[m%}%b" # 右側に表示されるプロンプト
 # }}}PROMPT
+# alias{{{
 # lsでカラー表示をする
 alias ls='ls --color=auto'
+# }}}alias
+# export{{{
 # 単語の区切りではない文字を指定する
 export WORDCHARS="*?_-.[]~=&;!# $%^(){}<>"
 # pathを設定
@@ -15,6 +18,7 @@ export EDITOR="vim"
 export BROWSER="w3m"
 # XDGの設定する場所
 export XDG_CONFIG_HOME="$HOME/.config"
+# }}}export
 # 履歴をファイルに保存する
 HISTFILE=$HOME/.zsh_history
 # メモリ内の履歴の数
@@ -26,6 +30,7 @@ LISTMAX=0
 # ファイル作成時のパーミッション
 umask 022
 # 補完関連
+fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit
 compinit -u
 # 文字列関連

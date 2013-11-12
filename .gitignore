@@ -51,6 +51,10 @@
 /misc/default/HOME/.vim/bundle/*
 !/misc/default/HOME/.vim/syntax/
 /misc/default/HOME/.vim/syntax/*
+!/misc/default/HOME/.zsh/
+/misc/default/HOME/.zsh/*
+!/misc/default/HOME/.zsh/functions/
+/misc/default/HOME/.zsh/functions/*
 !/misc/default/HOME/.proxychains/
 /misc/default/HOME/.proxychains/*
 !/misc/firefox/
@@ -103,6 +107,7 @@
 !/misc/default/HOME/.fbtermrc
 !/misc/default/HOME/.uim
 !/misc/default/HOME/.screenrc
+!/misc/default/HOME/.zsh/functions/_zip
 !/misc/default/HOME/.xprofile
 !/misc/default/HOME/.proxychains/proxychains.conf
 !/misc/default/HOME/.wgetrc
