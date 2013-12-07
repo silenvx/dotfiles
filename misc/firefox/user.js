@@ -121,8 +121,8 @@ user_pref("network.protocol-handler.warn-external-default", true);
 user_pref("dom.disable_window_move_resize",true);
 // 右クリック禁止ページを回避（JavaScript の詳細設定）
 user_pref("dom.event.contextmenu.enabled",false);
-// plugin-container.exe無効
-user_pref("dom.ipc.plugins.enabled",false);
+// plugin-container.exe有効
+user_pref("dom.ipc.plugins.enabled",true);
 // }}}dom.*
 // config.*{{{
 // 最小化でメモリ減らす
