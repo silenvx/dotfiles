@@ -1,3 +1,5 @@
+# default{{{
+[default]
 # 画面出力先の変更 TODO:画面が斜めになってしまうのを防ぐ (-vf scale=x:yコマンドでも回避ができるが数値の計算が面倒)
 vo=xv
 # 音声出力先の変更 TODO:ossがないか見に行って使っていないしエラーを吐くので書かなくても問題ないが書いておく
@@ -22,3 +24,33 @@ osdlevel=3
 subfont-autoscale=0
 # osdのフォントサイズ
 subfont-osd-scale=12
+# スクリーンセイバーを一時停止させる
+stop-xscreensaver=yes
+# }}}default
+# profile misc{{{
+# music{{{
+[music]
+profile-desc="music playing"
+loop=0
+vo=null
+# }}}music
+# }}}profile misc
+# profile protocol{{{
+# dvdnav{{{
+[protocol.dvdnav]
+profile-desc="dvdnav:// streams"
+# 再生できなくなるためnocache
+nocache=yes
+# マウスでメニュー画面を選択できる
+mouse-movements=yes
+# }}}dvdnav
+# }}}profile protocol
+# profile extension{{{
+# mp3{{{
+[extension.mp3]
+profile-desc="wrapper music"
+profile=music
+# }}}
+# }}}profile extension
+
+# vim:set foldmethod=marker:

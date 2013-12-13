@@ -1,4 +1,11 @@
 #!/bin/sh
+
+# デュアルディスプレイ用
 xrandr --output DVI-I-1 --mode 1920x1080 --primary
 xrandr --output DVI-I-2 --mode 1280x1024 --left-of DVI-I-1
 
+# beep音が鳴らないようにする
+xset b off
+
+# 画面が勝手に消えないようにする (手動で消す場合はxset dpms force off)
+xset dpms 0 0 0
