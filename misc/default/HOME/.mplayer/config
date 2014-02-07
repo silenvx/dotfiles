@@ -50,6 +50,9 @@ mouse-movements=yes
 [extension.mp3]
 profile-desc="wrapper music"
 profile=music
+[extension.m4a]
+profile-desc="wrapper music"
+profile=music
 # }}}
 # }}}profile extension
 

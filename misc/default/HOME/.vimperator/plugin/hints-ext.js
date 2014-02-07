@@ -1276,3 +1276,33 @@ case 2: {
 }
 }).call(this);
 );
+ (this._hintNumber == 0)
+            return;
+        let vlen = this._validHints.length
+        let num = this._num2chars(vlen).length;
+        let minNum = (this._hintNumber - 1) * Math.pow(options.hintchars.length, num - this._hintNumberStr.length);
+
+        if (vlen <= minNum) {
+            let oldId = this._hintNumber;
+            let str = this._hintNumberStr;
+            str = str.substr(0, str.length - 1);
+            this._hintNumberStr = str;
+            this._hintNumber = str ? this._chars2num(str) : 0;
+            this._showHints();
+            if (this._hintNumber == 0)
+                this._prevInput = "text";
+            this._showActiveHint(null, oldId);
+            liberator.beep();
+        }
+
+        if (this._hintNumberStr.length < this._num2chars(this._validHints.length).length) {
+            let timeout = options["hinttimeout"];
+            if (timeout > 0)
+                this._activeTimeout = this.setTimeout(function () { this._processHints(true); }, timeout);
+        }
+        else // we have a unique hint
+            this._processHints(true);
+    };
+}break;
+}
+}).call(this);

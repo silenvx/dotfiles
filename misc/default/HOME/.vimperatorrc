@@ -31,7 +31,7 @@ set insertmode
 " 左下のマウスオーバーを非表示
 style chrome://* #statusbar-display[type=" overLink" ] {display: none !important;}
 
-
+" お気に入りbuttonの位置修正だったと思う {{{
 javascript <<JS
 let statusLine = document.getElementById("liberator-statusline");
 let bottomBar = document.getElementById("liberator-bottombar");
@@ -61,6 +61,8 @@ let (favicon = document.getElementById("page-proxy-stack")) {
   statusLine.insertBefore(favicon, statusLine.firstChild);
 }
 JS
+" }}}
+
 style -name history-indicators chrome://browser/content/browser.xul <<CSS
   #history-indicators {
     padding: 0 ! important;
@@ -88,7 +90,7 @@ autocmd VimperatorEnter ".*" :javascript hints.addSimpleMap("<C-u>",function(){t
 
 autocmd VimperatorEnter ".*" :echo "read _vimperator"
 
-" flash blockにヒントモード追加 (;z)
+" flash blockにヒントモード追加 (;z) {{{
 " @http://d.hatena.ne.jp/mountain_dew/20090818/1250603912
 js <<EOM
 hints.addMode('z', 'Enable a Flash object',
@@ -101,6 +103,7 @@ hints.addMode('z', 'Enable a Flash object',
     function() '//xhtml:div[@title]'
 );
 EOM
+" }}}
 
 "" アドオンRequestPolicyの操作
 " 操作用ポップアップ表示
@@ -115,3 +118,42 @@ mappings.addUserMap(
   }
 );
 EOM
+
+" mdl.sh経由でyoutubeをmplayerで再生させる(仮){{{
+" やり方がわかったら戻り値の取得とyoutube以外にも対応させる
+javascript <<EOM
+commands.addUserCommand(
+    ["mdl"],
+    "shell script, \"!mdl.sh\" buffer.URL",
+    function(){
+       io.system("xterm -e sh -c \"mplayer \\\"`mdl.sh '" + buffer.URI + "'|grep itag=18`\\\"\" &");
+    }
+);
+EOM
+" }}}
+" vimperatorを再読み込み {{{
+" 参考: https://github.com/ytebine07/vimperator/blob/master/_vimperatorrc
+javascript <<EOM
+commands.addUserCommand(
+    ["resource"],
+    ":source ~/.vimperator",
+    function(){
+    //設定してあるマッピングを削除
+    mappings.removeAll( modes.NORMAL );
+    mappings.removeAll( modes.INSERT );
+    mappings.removeAll( modes.HINTS );
+
+    //設定してあるコマンドを削除
+    commands.getUserCommands().forEach(function(cmd){
+        commands.removeUserCommand(cmd.name);
+        });
+
+    //vimperatorrcを読み込み
+    io.source("~/.vimperatorrc", false);
+    liberator.echo("resource: ~/.vimperatorrc");
+    }
+);
+EOM
+" }}}
+
+" vim: set foldmethod=marker:

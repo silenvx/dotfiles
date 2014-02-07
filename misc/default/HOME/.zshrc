@@ -11,11 +11,11 @@ alias ls='ls --color=auto'
 # 単語の区切りではない文字を指定する
 export WORDCHARS="*?_-.[]~=&;!# $%^(){}<>"
 # pathを設定
-export PATH="$PATH:$HOME/bin:$HOME/local/bin:$HOME/misc/dev/git/bin"
+export PATH="$PATH:$HOME/bin:$HOME/local/bin:$HOME/misc/dev/git/bin:$HOME/.cabal/bin"
 # editor
 export EDITOR="vim"
 # browser
-export BROWSER="w3m"
+export BROWSER="firefox"
 # XDGの設定する場所
 export XDG_CONFIG_HOME="$HOME/.config"
 # }}}export

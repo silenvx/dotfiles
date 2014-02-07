@@ -127,7 +127,7 @@ case $state in
       fi
       if [[ $zipfile !=  $_zip_cache_name ]]; then
 	_zip_cache_name="$zipfile"
-	_zip_cache_list=( ${(f)"$(zipinfo -1 $_zip_cache_name)"} )
+	_zip_cache_list=( ${(f)"$(zipinfo -1 $_zip_cache_name|sed -e 's/\[/\\[/g' -e 's/\]/\\]/g')"} )
       fi
      _wanted files expl 'file from archive' \
 	 _multi_parts / _zip_cache_list && return
