@@ -33,13 +33,14 @@ THE POSSIBILITY OF SUCH DAMAGE.
 }}} */
 
 // PLUGIN_INFO {{{
-let PLUGIN_INFO =
+let PLUGIN_INFO = xml`
 <VimperatorPlugin>
   <name>Stella</name>
   <name lang="ja">すてら</name>
   <description>For Niconico/YouTube/Vimeo, Add control commands and information display(on status line).</description>
   <description lang="ja">ニコニコ動画/YouTube/Vimeo 用。操作コマンドと情報表示(ステータスライン上に)追加します。</description>
-  <version>0.33.0</version>
+  <version>0.33.2</version>
+
   <author mail="anekos@snca.net" homepage="http://d.hatena.ne.jp/nokturnalmortum/">anekos</author>
   <license>new BSD License (Please read the source code comments of this plugin)</license>
   <license lang="ja">修正BSDライセンス (ソースコードのコメントを参照してください)</license>
@@ -239,7 +240,7 @@ addLocalMappings(
     == Link ==
       http://d.hatena.ne.jp/nokturnalmortum/20081213/1229168832
   ]]></detail>
-</VimperatorPlugin>;
+</VimperatorPlugin>`;
 // }}}
 
 /* {{{
@@ -366,7 +367,7 @@ Thanks:
     },
 
     fixFilename: function (filename) {
-      const badChars = /[\\\/:;*?"<>|]/g;
+      const badChars = /[\\\/:;*?"`|]/g;
       return filename.replace(badChars, '_');
     },
 
@@ -956,7 +957,7 @@ Thanks:
         [
           'tags',
           XMLList([
-            <span>[<a href={v.href}>{v.textContent}</a>]</span>
+            xml`<span>[<a href=${v.href}>${v.textContent}</a>]</span>`
             for ([, v] in Iterator(doc.querySelectorAll('#eow-tags > li > a')))
           ].join(''))
         ],
@@ -1023,7 +1024,7 @@ Thanks:
 
     get totalTime () parseInt(this.player.getDuration()),
 
-    get isValid () (this.player && U.currentURL.match(/^http:\/\/(?:[^.]+\.)?youtube\.com\/watch/)),
+    get isValid () (this.player && U.currentURL.match(/^https?:\/\/(?:[^.]+\.)?youtube\.com\/watch/)),
 
     get volume () parseInt(this.player.getVolume()),
     set volume (value) (this.player.setVolume(value), this.volume),
@@ -1031,7 +1032,7 @@ Thanks:
     fetch: function (filepath) {
       // all(1080p,720p,480p,360p) -> 37, 22, 35, 34, 5
       // FIXME 一番初めが最高画質だと期待
-      let cargs = content.wrappedJSObject.yt.config_.PLAYER_CONFIG.args;
+      let cargs = content.wrappedJSObject.yt.playerConfig.args;
       cargs.url_encoded_fmt_stream_map.split(',')[0].split('&').forEach(function(x) {
         let [key, val] = x.split('=');
         if (key == 'url') {
@@ -1112,7 +1113,7 @@ Thanks:
         [
           'tags',
           XMLList([
-            <span>[<a href={v.href}>{v.textContent}</a>]</span>
+            xml`<span>[<a href=${v.href}>${v.textContent}</a>]</span>`
             for ([, v] in Iterator(doc.querySelectorAll('#eow-tags > li > a')))
           ].join(''))
         ],
@@ -1160,7 +1161,7 @@ Thanks:
     fetch: function (filepath) {
       // all(1080p,720p,480p,360p) -> 37, 22, 35, 34, 5
       // FIXME 一番初めが最高画質だと期待
-      let cargs = content.wrappedJSObject.yt.config_.PLAYER_CONFIG.args;
+      let cargs = content.wrappedJSObject.yt.playerConfig.args;
       cargs.url_encoded_fmt_stream_map.split(',')[0].split('&').forEach(function(x) {
         let [key, val] = x.split('=');
         if (key == 'url') {
@@ -1339,21 +1340,27 @@ Thanks:
     get pageinfo () {
       let v = content.wrappedJSObject.Video;
       return [
-        ['thumbnail', <img src={v.thumbnail} />],
+        ['thumbnail', xml`<img src=${v.thumbnail} />`],
         ['comment', U.toXML(v.description)],
         [
           'tag',
           [
-            <span>[<a href={this.makeURL(t, Player.URL_TAG)}>{t}</a>]</span>
+            xml`<span>[<a href=${this.makeURL(t, Player.URL_TAG)}>${t}</a>]</span>`
             for each (t in Array.slice(v.tags))
           ].join('')
         ]
       ];
     },
 
-    get player () content.document.getElementById('flvplayer').wrappedJSObject.__proto__,
+    get player () {
+      return (
+        U.getElementById('flvplayer')
+        ||
+        U.getElementById('external_nicoplayer')
+      ).wrappedJSObject.__proto__;
+    },
 
-    get playerContainer () U.getElementByIdEx('flvplayer_container'),
+    // get playerContainer () U.getElementByIdEx('flvplayer_container'),
 
     get ready () {
       try {
@@ -2027,7 +2034,7 @@ Thanks:
               context.process = [
                 process[0],
                 function (item, text)
-                  (item.thumbnail ? <><img src={item.thumbnail} style="margin-right: 0.5em; height: 3em;"/>{text}</>
+                  (item.thumbnail ? `<img src={item.thumbnail} style="margin-right: 0.5em; height: 3em;"/>{text}`
                                   : process[1].apply(this, arguments))
               ];
               lastCompletions = self.player.relations;
@@ -2048,7 +2055,7 @@ Thanks:
         function (verbose)
           (self.isValid && self.player.has('pageinfo', 'r')
             ? [
-                [n, <div style="white-space: normal">{modules.template.maybeXML(v)}</div>]
+                [n, xml`<div style="white-space: normal">${modules.template.maybeXML(v)}</div>`]
                 for each ([n, v] in self.player.pageinfo)
               ]
             : [])
@@ -2373,18 +2380,6 @@ Thanks:
           install();
         },
         false
-      );
-    }
-  } else {
-    /* do something */
-  }
-
-  // }}}
-
-})();
-
-// vim:sw=2 ts=2 et si fdm=marker:
-
       );
     }
   } else {

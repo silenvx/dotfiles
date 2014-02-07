@@ -12,6 +12,6 @@ https://raw.github.com/vimpr/vimperator-plugins/master/walk-input.js
 "
 
 for TMP in $LIST;do
-    wget -c "${TMP}"
+    wget -N "${TMP}"
     sleep 2
 done
