@@ -1,6 +1,6 @@
 #!/bin/sh
 cd "$(dirname ${0})"
-VERSION='0.0.3'
+VERSION='0.0.4'
 FLAG_mode=''
 FLAG_f=''
 FLAG_v=''
@@ -205,6 +205,15 @@ for i in `cat "${SYM_FILELIST}"`;do
                 SYM_FUNCARG="${n##* }"
             fi
         done
+
+# DESTに使われてる変数が空でないかチェック
+        TMP_ARG=`echo ${i##* }|sed -e 's|/"$|"|'`
+        if [ -z `eval echo ${TMP_ARG}` ];then
+            echo "${SYM_FILELIST}の`grep -n \"^${i}$\" \"${SYM_FILELIST}\"`に誤りがありました" >&2
+            echo "${TMP_ARG}の変数が未定義です" >&2
+            exit
+        fi
+
         if [ "${SYM_FUNCARG}" == '' ];then
             echo "${SYM_FILELIST}の`grep -n \"^${i}$\" \"${SYM_FILELIST}\"`に誤りがありました" >&2
             echo "${i%% *}の処理は設定されていません" >&2
