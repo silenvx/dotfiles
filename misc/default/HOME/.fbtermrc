@@ -6,7 +6,7 @@
 
 # font family names/pixelsize used by fbterm, multiple font family names must be seperated by ','
 # and using a fixed width font as the first is strongly recommended
-font-names=RictyZn
+font-names=Ricty
 font-size=12
 
 # force font width (and/or height), usually for non-fixed width fonts
@@ -44,5 +44,24 @@ input-method=
 # treat ambiguous width characters as wide
 #ambiguous-wide=yes
 
-#term
+# term
 term=fbterm
+
+# colors
+color-0=000000
+#color-0=242424
+color-1=952519
+color-2=69821b
+color-3=af8700
+color-4=3387cc
+color-5=a757a8
+color-6=418179
+color-7=a0a8b0
+color-8=444444
+color-9=ff5f55
+color-10=73d144
+color-11=ffd348
+color-12=89bdff
+color-13=d787ff
+color-14=71bebe
+color-15=c3c6ca
