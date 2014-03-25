@@ -42,14 +42,13 @@ screen-rotate=0
 input-method=
 
 # treat ambiguous width characters as wide
-#ambiguous-wide=yes
+ambiguous-wide=yes
 
-# term
+# term, need patch
 term=fbterm
 
-# colors
+# colors, need patch
 color-0=000000
-#color-0=242424
 color-1=952519
 color-2=69821b
 color-3=af8700
