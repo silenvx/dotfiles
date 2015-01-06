@@ -172,7 +172,7 @@ __EOF__
         SYM_IGNOREFIND="find ${SYM_DOTFILES} -type f"
         IFS=$'\n'
         for i in ${SYM_IGNORELIST};do
-            SYM_IGNOREFIND="${SYM_IGNOREFIND} -and ! -path '.${i}/*'"
+            SYM_IGNOREFIND="${SYM_IGNOREFIND} -and ! -path '.${i}' -and ! -path '.${i}/*'"
         done
         for i in `eval "${SYM_IGNOREFIND% -and}"`;do
             echo "${i}"|sed -e 's/^\.\//\//g' -e 's/^/!/g'

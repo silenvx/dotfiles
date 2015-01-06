@@ -70,8 +70,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 if [ -n "$failsafe" ]; then
-    #xcompmgr &
-    exec awesome
+    if which xmonad >/dev/null 2>&1;then
+        exec xmonad
+    else
+        exec awesome
+    fi
 else
     exec $command
 fi
