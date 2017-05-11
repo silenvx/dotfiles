@@ -37,6 +37,8 @@ Bundle 'mattn/webapi-vim'
 Bundle 'rtorrent-syntax-file'
 " actionscriptのsyntax
 Bundle 'vim-scripts/actionscript.vim--Leider'
+" haskell
+Bundle 'dag/vim2hs'
 " }}}vundleの設定
 
 " pluginとindentをon

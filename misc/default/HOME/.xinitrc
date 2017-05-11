@@ -24,13 +24,20 @@ export LANG="en_US.UTF-8"
 #exec uim-toolbar-qt4 &
 
 # uim on archlinux
-export XIM="uim"
-export GTK_IM_MODULE=xim
-export QT_IM_MODULE="uim"
-export XMODIFIERS="@im=uim"
-export UIM_CANDWIN_PROG="uim-candwin-qt4"
-exec uim-xim &
+#export XIM="uim"
+#export GTK_IM_MODULE=xim
+#export QT_IM_MODULE="uim"
+#export XMODIFIERS="@im=uim"
+#export UIM_CANDWIN_PROG="uim-candwin-qt4"
+#exec uim-xim &
 #exec uim-toolbar-qt4 &
+
+# fcitx on archlinux
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export DefaultIMModule=fcitx
+exec fcitx &
 
 # merge in defaults and keymaps
 
@@ -69,13 +76,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
-if [ -n "$failsafe" ]; then
-    if which xmonad >/dev/null 2>&1;then
-        exec xmonad
-    else
-        exec awesome
-    fi
-else
-    exec $command
-fi
-
+#if [ -n "$failsafe" ]; then
+#    if which xmonad >/dev/null 2>&1;then
+#        exec xmonad
+#    else
+##        exec awesome
+#        exec mate-session
+#    fi
+#else
+#    exec $command
+#fi
+#
+exec xmonad
