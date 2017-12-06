@@ -18,7 +18,7 @@ myTerminal      = "xterm"
 myModMask       = mod4Mask
 
 -- ワークスペース
-myWorkspaces = ["1:work","2:web"] ++ map show [3..9]
+myWorkspaces = ["1","2","3"]
 
 ------------------------------------------------------------------------
 -- xmobarの設定

@@ -87,4 +87,6 @@ fi
 #    exec $command
 #fi
 #
+exec feh --bg-scale ~/Downloads/JE8nmVJ-opensuse-wallpapers.jpg &
 exec xmonad
+#exec awesome

@@ -1,6 +1,7 @@
 #!/bin/sh
 
-xrandr --output Virtual-1 --mode 1440x900
+xrandr --output Virtual1 --mode 1440x900
+#xrandr --output Virtual1 --auto
 
 # デュアルディスプレイ用
 #xrandr --output DVI-I-1 --mode 1920x1080 --primary

@@ -18,7 +18,7 @@ XTerm*translations: #override <Key>Hyper_L: string("\033\033[24~")
 ! 記号などを全角で表示する (charmapで対応した方が良い)
 !XTerm*cjkWidth: true
 ! 文字の幅を正しくする機能は不具合が出るのでoff
-XTerm*forcePackedFont: false
+XTerm*forcePackedFont: true
 ! フォント (RictyZnはRictyに中国語フォントをマージさせたもの。幅が少しおかしいのでfonts.confで設定するかfaceNameにRictyなどの設定が必須)
 XTerm*faceName: Ricty
 ! マルチバイト文字のフォント
