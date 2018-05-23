@@ -81,6 +81,8 @@ call submode#map('bufmove', 'n', '', '<', '<C-w><')
 call submode#map('bufmove', 'n', '', '+', '<C-w>+')
 call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 " }}}https://qiita.com/tekkoc/items/98adcadfa4bdc8b5a6ca
+nnoremap s" :<C-u>sp<CR>
+nnoremap s% :<C-u>vs<CR>
 " }}}keymap
 
 " pluginとindentをon

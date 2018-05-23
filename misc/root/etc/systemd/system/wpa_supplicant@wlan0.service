@@ -1,9 +1,0 @@
-[Unit]
-Description=WPA supplicant daemon
-
-[Service]
-Type=simple
-ExecStart=/usr/sbin//wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant_001D739FE910_G.conf -i%I
-
-[Install]
-WantedBy=multi-user.target
