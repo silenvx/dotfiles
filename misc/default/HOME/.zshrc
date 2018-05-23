@@ -138,4 +138,6 @@ setopt numeric_glob_sort
 #    export TERM=fbterm
 #fi
 
+screenfetch
+
 # vim:set fdm=marker:

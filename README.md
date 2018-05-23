@@ -18,5 +18,3 @@ defaultディレクトリ内のディレクトリ名は変数名を使います
 ./misc/default/HOME/ディレクトリ内に置いていきます
 そういうわけで./misc/default/XDG\_CONFIG\_HOMEディレクトリは${XDG\_CONFIG\_HOME}の変数に置換されて
 シンボリックリンクが貼られることになります
-
-firefoxディレクトリはそのままprofileディレクトリに見立てて入れていきます
